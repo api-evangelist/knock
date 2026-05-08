@@ -1,0 +1,29 @@
+aid: knock
+url: https://raw.githubusercontent.com/api-evangelist/knock/refs/heads/main/apis.yml
+name: Knock
+x-type: company
+description: >-
+  Knock is a notification infrastructure platform with workflows, channels (email, SMS, push, in-app), preferences, and digests. Stripe-style API for sending and orchestrating multi-channel notifications.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Notifications
+  - Email
+  - SMS
+  - Push
+  - Workflows
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://knock.app/
+  - type: Plans
+    url: plans/knock-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/knock-rate-limits.yml
+  - type: FinOps
+    url: finops/knock-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
