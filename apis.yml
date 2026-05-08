@@ -2,28 +2,121 @@ aid: knock
 url: https://raw.githubusercontent.com/api-evangelist/knock/refs/heads/main/apis.yml
 name: Knock
 x-type: company
-description: >-
-  Knock is a notification infrastructure platform with workflows, channels (email, SMS, push, in-app), preferences, and digests. Stripe-style API for sending and orchestrating multi-channel notifications.
+description: Knock is a notification infrastructure platform with workflows, channels (email, SMS, push, in-app), preferences,
+  and digests. Stripe-style API for sending and orchestrating multi-channel notifications.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Notifications
-  - Email
-  - SMS
-  - Push
-  - Workflows
+- Notifications
+- Email
+- SMS
+- Push
+- Workflows
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+- name: Knock Workflows API
+  description: Trigger and orchestrate notification workflows with batch, throttle and delay logic.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Workflows
+  - Orchestration
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Messages API
+  description: Manage individual messages with delivery and engagement tracking.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Messages
+  - Delivery
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Users API
+  description: Identify users, manage preferences, channel data, subscriptions and schedules.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Users
+  - Recipients
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Objects API
+  description: Non-user resources that receive notifications or have subscribers.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Objects
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Feeds API
+  description: In-app message feeds with pagination and filtering for client rendering.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Feeds
+  - In-App
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Guides API
+  description: Step-by-step in-app guided experiences.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Guides
+  - Onboarding
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Schedules API
+  description: Recurring and one-time workflow triggers per recipient.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Schedules
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
+- name: Knock Preferences API
+  description: User and object preferences by channel, category, or workflow.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Preferences
+  properties:
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: OpenAPI
+    url: openapi/knock-openapi.json
 common:
-  - type: Website
-    url: https://knock.app/
-  - type: Plans
-    url: plans/knock-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/knock-rate-limits.yml
-  - type: FinOps
-    url: finops/knock-finops.yml
+- type: Website
+  url: https://knock.app/
+- type: Plans
+  url: plans/knock-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/knock-rate-limits.yml
+- type: FinOps
+  url: finops/knock-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

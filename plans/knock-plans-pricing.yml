@@ -13,11 +13,13 @@ tags:
 - Push
 - Workflows
 - Plans
-description: Placeholder plans/pricing artifact for Knock. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+description: Placeholder plans/pricing artifact for Knock. Replace with real published pricing once the pipeline researches
+  the provider's plans page.
+notes: "Initial scaffold \u2014 plans/pricing have not yet been reconciled against the provider's documentation."
 sources:
 - https://knock.app/
+- https://docs.knock.app/
+- https://docs.knock.app/reference
 plans:
 - id: knock-default
   name: To Be Reconciled
