@@ -1,7 +1,7 @@
 aid: knock
 url: https://raw.githubusercontent.com/api-evangelist/knock/refs/heads/main/apis.yml
 name: Knock
-x-type: company
+kind: company
 description: Knock is a notification infrastructure platform with workflows, channels (email, SMS, push, in-app), preferences,
   and digests. Stripe-style API for sending and orchestrating multi-channel notifications.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
