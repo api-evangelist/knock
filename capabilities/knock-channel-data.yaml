@@ -1,0 +1,339 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knock API — Channel data
+  description: 'Knock API — Channel data. 6 operations. Lead operation: Unset channel data. Self-contained Naftiko capability
+    covering one Knock business surface.'
+  tags:
+  - Knock
+  - Channel data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOCK_API_KEY: KNOCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: knock-channel-data
+    baseUri: https://api.knock.app
+    description: Knock API — Channel data business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-objects-collection-object_id-channel_data-channel_id
+      path: /v1/objects/{collection}/{object_id}/channel_data/{channel_id}
+      operations:
+      - name: unsetobjectchanneldata
+        method: DELETE
+        description: Unset channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: object_id
+          in: path
+          type: string
+          description: Unique identifier for the object.
+          required: true
+        - name: collection
+          in: path
+          type: string
+          description: The collection this object belongs to.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+      - name: getobjectchanneldata
+        method: GET
+        description: Get channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: object_id
+          in: path
+          type: string
+          description: Unique identifier for the object.
+          required: true
+        - name: collection
+          in: path
+          type: string
+          description: The collection this object belongs to.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+      - name: setobjectchanneldata
+        method: PUT
+        description: Set channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: object_id
+          in: path
+          type: string
+          description: Unique identifier for the object.
+          required: true
+        - name: collection
+          in: path
+          type: string
+          description: The collection this object belongs to.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-channel_data-channel_id
+      path: /v1/users/{user_id}/channel_data/{channel_id}
+      operations:
+      - name: unsetuserchanneldata
+        method: DELETE
+        description: Unset channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+      - name: getuserchanneldata
+        method: GET
+        description: Get channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+      - name: setuserchanneldata
+        method: PUT
+        description: Set channel data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KNOCK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: knock-channel-data-rest
+    port: 8080
+    description: REST adapter for Knock API — Channel data. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/objects/{collection}/{object-id}/channel-data/{channel-id}
+      name: v1-objects-collection-object-id-channel-data-channel-id
+      description: REST surface for v1-objects-collection-object_id-channel_data-channel_id.
+      operations:
+      - method: DELETE
+        name: unsetobjectchanneldata
+        description: Unset channel data
+        call: knock-channel-data.unsetobjectchanneldata
+        with:
+          object_id: rest.object_id
+          collection: rest.collection
+          channel_id: rest.channel_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getobjectchanneldata
+        description: Get channel data
+        call: knock-channel-data.getobjectchanneldata
+        with:
+          object_id: rest.object_id
+          collection: rest.collection
+          channel_id: rest.channel_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: setobjectchanneldata
+        description: Set channel data
+        call: knock-channel-data.setobjectchanneldata
+        with:
+          object_id: rest.object_id
+          collection: rest.collection
+          channel_id: rest.channel_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/channel-data/{channel-id}
+      name: v1-users-user-id-channel-data-channel-id
+      description: REST surface for v1-users-user_id-channel_data-channel_id.
+      operations:
+      - method: DELETE
+        name: unsetuserchanneldata
+        description: Unset channel data
+        call: knock-channel-data.unsetuserchanneldata
+        with:
+          user_id: rest.user_id
+          channel_id: rest.channel_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getuserchanneldata
+        description: Get channel data
+        call: knock-channel-data.getuserchanneldata
+        with:
+          user_id: rest.user_id
+          channel_id: rest.channel_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: setuserchanneldata
+        description: Set channel data
+        call: knock-channel-data.setuserchanneldata
+        with:
+          user_id: rest.user_id
+          channel_id: rest.channel_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: knock-channel-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knock API — Channel data. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: unset-channel-data
+      description: Unset channel data
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: knock-channel-data.unsetobjectchanneldata
+      with:
+        object_id: tools.object_id
+        collection: tools.collection
+        channel_id: tools.channel_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-channel-data
+      description: Get channel data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-channel-data.getobjectchanneldata
+      with:
+        object_id: tools.object_id
+        collection: tools.collection
+        channel_id: tools.channel_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-channel-data
+      description: Set channel data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-channel-data.setobjectchanneldata
+      with:
+        object_id: tools.object_id
+        collection: tools.collection
+        channel_id: tools.channel_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: unset-channel-data-2
+      description: Unset channel data
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: knock-channel-data.unsetuserchanneldata
+      with:
+        user_id: tools.user_id
+        channel_id: tools.channel_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-channel-data-2
+      description: Get channel data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-channel-data.getuserchanneldata
+      with:
+        user_id: tools.user_id
+        channel_id: tools.channel_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-channel-data-2
+      description: Set channel data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-channel-data.setuserchanneldata
+      with:
+        user_id: tools.user_id
+        channel_id: tools.channel_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

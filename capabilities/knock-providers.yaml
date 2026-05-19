@@ -1,0 +1,462 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knock API — Providers
+  description: 'Knock API — Providers. 7 operations. Lead operation: Check auth. Self-contained Naftiko capability covering
+    one Knock business surface.'
+  tags:
+  - Knock
+  - Providers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOCK_API_KEY: KNOCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: knock-providers
+    baseUri: https://api.knock.app
+    description: Knock API — Providers business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-providers-ms-teams-channel_id-auth_check
+      path: /v1/providers/ms-teams/{channel_id}/auth_check
+      operations:
+      - name: msteamsproviderauthcheck
+        method: GET
+        description: Check auth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to check.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+    - name: v1-providers-ms-teams-channel_id-channels
+      path: /v1/providers/ms-teams/{channel_id}/channels
+      operations:
+      - name: listchannelsformsteamsprovider
+        method: GET
+        description: List channels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to get channels for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+        - name: team_id
+          in: query
+          type: string
+          description: Microsoft Teams team ID.
+          required: true
+        - name: query_options.$filter
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to filter channels.'
+        - name: query_options.$select
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to select specific properties.'
+    - name: v1-providers-ms-teams-channel_id-revoke_access
+      path: /v1/providers/ms-teams/{channel_id}/revoke_access
+      operations:
+      - name: msteamsproviderrevokeaccess
+        method: PUT
+        description: Revoke access
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to revoke access for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+    - name: v1-providers-ms-teams-channel_id-teams
+      path: /v1/providers/ms-teams/{channel_id}/teams
+      operations:
+      - name: listteamsformsteamsprovider
+        method: GET
+        description: List teams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to get teams for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+        - name: query_options.$filter
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to filter teams.'
+        - name: query_options.$select
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to select fields on a team.'
+        - name: query_options.$top
+          in: query
+          type: integer
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to limit the number of teams returned.'
+        - name: query_options.$skiptoken
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to retrieve the next page of results.'
+    - name: v1-providers-slack-channel_id-auth_check
+      path: /v1/providers/slack/{channel_id}/auth_check
+      operations:
+      - name: slackproviderauthcheck
+        method: GET
+        description: Check auth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Slack channel to check.
+          required: true
+        - name: access_token_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the access token object reference.
+          required: true
+    - name: v1-providers-slack-channel_id-channels
+      path: /v1/providers/slack/{channel_id}/channels
+      operations:
+      - name: listchannelsforslackprovider
+        method: GET
+        description: List channels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Slack channel to get channels for.
+          required: true
+        - name: access_token_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the access token object reference.
+          required: true
+        - name: query_options.cursor
+          in: query
+          type: string
+          description: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
+            by a previous request's response_metadata. Default valu
+        - name: query_options.limit
+          in: query
+          type: integer
+          description: The maximum number of channels to return. Defaults to 200.
+        - name: query_options.exclude_archived
+          in: query
+          type: boolean
+          description: Set to true to exclude archived channels from the list. Defaults to `true` when not explicitly provided.
+        - name: query_options.types
+          in: query
+          type: string
+          description: Mix and match channel types by providing a comma-separated list of any combination of public_channel,
+            private_channel, mpim, im. Defaults to `"public_channel,pr
+        - name: query_options.team_id
+          in: query
+          type: string
+          description: Encoded team ID (T1234) to list channels in, required if org token is used.
+    - name: v1-providers-slack-channel_id-revoke_access
+      path: /v1/providers/slack/{channel_id}/revoke_access
+      operations:
+      - name: slackproviderrevokeaccess
+        method: PUT
+        description: Revoke access
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Slack channel to revoke access for.
+          required: true
+        - name: access_token_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the access token object reference.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KNOCK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: knock-providers-rest
+    port: 8080
+    description: REST adapter for Knock API — Providers. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/providers/ms-teams/{channel-id}/auth-check
+      name: v1-providers-ms-teams-channel-id-auth-check
+      description: REST surface for v1-providers-ms-teams-channel_id-auth_check.
+      operations:
+      - method: GET
+        name: msteamsproviderauthcheck
+        description: Check auth
+        call: knock-providers.msteamsproviderauthcheck
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/channels
+      name: v1-providers-ms-teams-channel-id-channels
+      description: REST surface for v1-providers-ms-teams-channel_id-channels.
+      operations:
+      - method: GET
+        name: listchannelsformsteamsprovider
+        description: List channels
+        call: knock-providers.listchannelsformsteamsprovider
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+          team_id: rest.team_id
+          query_options.$filter: rest.query_options.$filter
+          query_options.$select: rest.query_options.$select
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/revoke-access
+      name: v1-providers-ms-teams-channel-id-revoke-access
+      description: REST surface for v1-providers-ms-teams-channel_id-revoke_access.
+      operations:
+      - method: PUT
+        name: msteamsproviderrevokeaccess
+        description: Revoke access
+        call: knock-providers.msteamsproviderrevokeaccess
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/teams
+      name: v1-providers-ms-teams-channel-id-teams
+      description: REST surface for v1-providers-ms-teams-channel_id-teams.
+      operations:
+      - method: GET
+        name: listteamsformsteamsprovider
+        description: List teams
+        call: knock-providers.listteamsformsteamsprovider
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+          query_options.$filter: rest.query_options.$filter
+          query_options.$select: rest.query_options.$select
+          query_options.$top: rest.query_options.$top
+          query_options.$skiptoken: rest.query_options.$skiptoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/slack/{channel-id}/auth-check
+      name: v1-providers-slack-channel-id-auth-check
+      description: REST surface for v1-providers-slack-channel_id-auth_check.
+      operations:
+      - method: GET
+        name: slackproviderauthcheck
+        description: Check auth
+        call: knock-providers.slackproviderauthcheck
+        with:
+          channel_id: rest.channel_id
+          access_token_object: rest.access_token_object
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/slack/{channel-id}/channels
+      name: v1-providers-slack-channel-id-channels
+      description: REST surface for v1-providers-slack-channel_id-channels.
+      operations:
+      - method: GET
+        name: listchannelsforslackprovider
+        description: List channels
+        call: knock-providers.listchannelsforslackprovider
+        with:
+          channel_id: rest.channel_id
+          access_token_object: rest.access_token_object
+          query_options.cursor: rest.query_options.cursor
+          query_options.limit: rest.query_options.limit
+          query_options.exclude_archived: rest.query_options.exclude_archived
+          query_options.types: rest.query_options.types
+          query_options.team_id: rest.query_options.team_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/slack/{channel-id}/revoke-access
+      name: v1-providers-slack-channel-id-revoke-access
+      description: REST surface for v1-providers-slack-channel_id-revoke_access.
+      operations:
+      - method: PUT
+        name: slackproviderrevokeaccess
+        description: Revoke access
+        call: knock-providers.slackproviderrevokeaccess
+        with:
+          channel_id: rest.channel_id
+          access_token_object: rest.access_token_object
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: knock-providers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knock API — Providers. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: check-auth
+      description: Check auth
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-providers.msteamsproviderauthcheck
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-channels
+      description: List channels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-providers.listchannelsformsteamsprovider
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+        team_id: tools.team_id
+        query_options.$filter: tools.query_options.$filter
+        query_options.$select: tools.query_options.$select
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-access
+      description: Revoke access
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-providers.msteamsproviderrevokeaccess
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-teams
+      description: List teams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-providers.listteamsformsteamsprovider
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+        query_options.$filter: tools.query_options.$filter
+        query_options.$select: tools.query_options.$select
+        query_options.$top: tools.query_options.$top
+        query_options.$skiptoken: tools.query_options.$skiptoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-auth-2
+      description: Check auth
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-providers.slackproviderauthcheck
+      with:
+        channel_id: tools.channel_id
+        access_token_object: tools.access_token_object
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-channels-2
+      description: List channels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-providers.listchannelsforslackprovider
+      with:
+        channel_id: tools.channel_id
+        access_token_object: tools.access_token_object
+        query_options.cursor: tools.query_options.cursor
+        query_options.limit: tools.query_options.limit
+        query_options.exclude_archived: tools.query_options.exclude_archived
+        query_options.types: tools.query_options.types
+        query_options.team_id: tools.query_options.team_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-access-2
+      description: Revoke access
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-providers.slackproviderrevokeaccess
+      with:
+        channel_id: tools.channel_id
+        access_token_object: tools.access_token_object
+      outputParameters:
+      - type: object
+        mapping: $.

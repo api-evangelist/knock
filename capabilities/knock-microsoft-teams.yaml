@@ -1,0 +1,283 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knock API — Microsoft Teams
+  description: 'Knock API — Microsoft Teams. 4 operations. Lead operation: Check auth. Self-contained Naftiko capability covering
+    one Knock business surface.'
+  tags:
+  - Knock
+  - Microsoft Teams
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOCK_API_KEY: KNOCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: knock-microsoft-teams
+    baseUri: https://api.knock.app
+    description: Knock API — Microsoft Teams business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-providers-ms-teams-channel_id-auth_check
+      path: /v1/providers/ms-teams/{channel_id}/auth_check
+      operations:
+      - name: msteamsproviderauthcheck
+        method: GET
+        description: Check auth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to check.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+    - name: v1-providers-ms-teams-channel_id-channels
+      path: /v1/providers/ms-teams/{channel_id}/channels
+      operations:
+      - name: listchannelsformsteamsprovider
+        method: GET
+        description: List channels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to get channels for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+        - name: team_id
+          in: query
+          type: string
+          description: Microsoft Teams team ID.
+          required: true
+        - name: query_options.$filter
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to filter channels.'
+        - name: query_options.$select
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to select specific properties.'
+    - name: v1-providers-ms-teams-channel_id-revoke_access
+      path: /v1/providers/ms-teams/{channel_id}/revoke_access
+      operations:
+      - name: msteamsproviderrevokeaccess
+        method: PUT
+        description: Revoke access
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to revoke access for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+    - name: v1-providers-ms-teams-channel_id-teams
+      path: /v1/providers/ms-teams/{channel_id}/teams
+      operations:
+      - name: listteamsformsteamsprovider
+        method: GET
+        description: List teams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: channel_id
+          in: path
+          type: string
+          description: The ID of the Knock Microsoft Teams channel to get teams for.
+          required: true
+        - name: ms_teams_tenant_object
+          in: query
+          type: string
+          description: A JSON encoded string containing the Microsoft Teams tenant object reference.
+          required: true
+        - name: query_options.$filter
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to filter teams.'
+        - name: query_options.$select
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to select fields on a team.'
+        - name: query_options.$top
+          in: query
+          type: integer
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to limit the number of teams returned.'
+        - name: query_options.$skiptoken
+          in: query
+          type: string
+          description: '[OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed to the Microsoft Graph
+            API to retrieve the next page of results.'
+    authentication:
+      type: bearer
+      token: '{{env.KNOCK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: knock-microsoft-teams-rest
+    port: 8080
+    description: REST adapter for Knock API — Microsoft Teams. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/providers/ms-teams/{channel-id}/auth-check
+      name: v1-providers-ms-teams-channel-id-auth-check
+      description: REST surface for v1-providers-ms-teams-channel_id-auth_check.
+      operations:
+      - method: GET
+        name: msteamsproviderauthcheck
+        description: Check auth
+        call: knock-microsoft-teams.msteamsproviderauthcheck
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/channels
+      name: v1-providers-ms-teams-channel-id-channels
+      description: REST surface for v1-providers-ms-teams-channel_id-channels.
+      operations:
+      - method: GET
+        name: listchannelsformsteamsprovider
+        description: List channels
+        call: knock-microsoft-teams.listchannelsformsteamsprovider
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+          team_id: rest.team_id
+          query_options.$filter: rest.query_options.$filter
+          query_options.$select: rest.query_options.$select
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/revoke-access
+      name: v1-providers-ms-teams-channel-id-revoke-access
+      description: REST surface for v1-providers-ms-teams-channel_id-revoke_access.
+      operations:
+      - method: PUT
+        name: msteamsproviderrevokeaccess
+        description: Revoke access
+        call: knock-microsoft-teams.msteamsproviderrevokeaccess
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/providers/ms-teams/{channel-id}/teams
+      name: v1-providers-ms-teams-channel-id-teams
+      description: REST surface for v1-providers-ms-teams-channel_id-teams.
+      operations:
+      - method: GET
+        name: listteamsformsteamsprovider
+        description: List teams
+        call: knock-microsoft-teams.listteamsformsteamsprovider
+        with:
+          channel_id: rest.channel_id
+          ms_teams_tenant_object: rest.ms_teams_tenant_object
+          query_options.$filter: rest.query_options.$filter
+          query_options.$select: rest.query_options.$select
+          query_options.$top: rest.query_options.$top
+          query_options.$skiptoken: rest.query_options.$skiptoken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: knock-microsoft-teams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knock API — Microsoft Teams. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: check-auth
+      description: Check auth
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-microsoft-teams.msteamsproviderauthcheck
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-channels
+      description: List channels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-microsoft-teams.listchannelsformsteamsprovider
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+        team_id: tools.team_id
+        query_options.$filter: tools.query_options.$filter
+        query_options.$select: tools.query_options.$select
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-access
+      description: Revoke access
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-microsoft-teams.msteamsproviderrevokeaccess
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-teams
+      description: List teams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-microsoft-teams.listteamsformsteamsprovider
+      with:
+        channel_id: tools.channel_id
+        ms_teams_tenant_object: tools.ms_teams_tenant_object
+        query_options.$filter: tools.query_options.$filter
+        query_options.$select: tools.query_options.$select
+        query_options.$top: tools.query_options.$top
+        query_options.$skiptoken: tools.query_options.$skiptoken
+      outputParameters:
+      - type: object
+        mapping: $.

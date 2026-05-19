@@ -1,0 +1,490 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knock API — Guides
+  description: 'Knock API — Guides. 9 operations. Lead operation: Reset guide engagement. Self-contained Naftiko capability
+    covering one Knock business surface.'
+  tags:
+  - Knock
+  - Guides
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOCK_API_KEY: KNOCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: knock-guides
+    baseUri: https://api.knock.app
+    description: Knock API — Guides business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-users-user_id-guides-engagements-reset
+      path: /v1/users/{user_id}/guides/engagements/reset
+      operations:
+      - name: resetuserguideengagement
+        method: PUT
+        description: Reset guide engagement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-archived
+      path: /v1/users/{user_id}/guides/messages/archived
+      operations:
+      - name: markuserguideasunarchived
+        method: DELETE
+        description: Mark guide as unarchived
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: markuserguideasarchived2
+        method: PUT
+        description: Mark guide as archived
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-interacted
+      path: /v1/users/{user_id}/guides/messages/interacted
+      operations:
+      - name: markuserguideasinteracted2
+        method: PUT
+        description: Mark guide as interacted
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-seen
+      path: /v1/users/{user_id}/guides/messages/seen
+      operations:
+      - name: markuserguideasseen2
+        method: PUT
+        description: Mark guide as seen
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-message_id-archived
+      path: /v1/users/{user_id}/guides/messages/{message_id}/archived
+      operations:
+      - name: markuserguideasarchived
+        method: PUT
+        description: Mark guide as archived
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-message_id-interacted
+      path: /v1/users/{user_id}/guides/messages/{message_id}/interacted
+      operations:
+      - name: markuserguideasinteracted
+        method: PUT
+        description: Mark guide as interacted
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-messages-message_id-seen
+      path: /v1/users/{user_id}/guides/messages/{message_id}/seen
+      operations:
+      - name: markuserguideasseen
+        method: PUT
+        description: Mark guide as seen
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-users-user_id-guides-channel_id
+      path: /v1/users/{user_id}/guides/{channel_id}
+      operations:
+      - name: listuserguides
+        method: GET
+        description: List guides
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: user_id
+          in: path
+          type: string
+          description: The unique identifier of the user.
+          required: true
+        - name: channel_id
+          in: path
+          type: string
+          description: The unique identifier for the channel.
+          required: true
+        - name: tenant
+          in: query
+          type: string
+          description: The tenant ID to use for targeting and rendering guides.
+        - name: data
+          in: query
+          type: string
+          description: The data (JSON encoded object) to use for targeting and rendering guides.
+        - name: type
+          in: query
+          type: string
+          description: The type of guides to filter by.
+    authentication:
+      type: bearer
+      token: '{{env.KNOCK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: knock-guides-rest
+    port: 8080
+    description: REST adapter for Knock API — Guides. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/v1/users/{user-id}/guides/engagements/reset
+      name: v1-users-user-id-guides-engagements-reset
+      description: REST surface for v1-users-user_id-guides-engagements-reset.
+      operations:
+      - method: PUT
+        name: resetuserguideengagement
+        description: Reset guide engagement
+        call: knock-guides.resetuserguideengagement
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/archived
+      name: v1-users-user-id-guides-messages-archived
+      description: REST surface for v1-users-user_id-guides-messages-archived.
+      operations:
+      - method: DELETE
+        name: markuserguideasunarchived
+        description: Mark guide as unarchived
+        call: knock-guides.markuserguideasunarchived
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: markuserguideasarchived2
+        description: Mark guide as archived
+        call: knock-guides.markuserguideasarchived2
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/interacted
+      name: v1-users-user-id-guides-messages-interacted
+      description: REST surface for v1-users-user_id-guides-messages-interacted.
+      operations:
+      - method: PUT
+        name: markuserguideasinteracted2
+        description: Mark guide as interacted
+        call: knock-guides.markuserguideasinteracted2
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/seen
+      name: v1-users-user-id-guides-messages-seen
+      description: REST surface for v1-users-user_id-guides-messages-seen.
+      operations:
+      - method: PUT
+        name: markuserguideasseen2
+        description: Mark guide as seen
+        call: knock-guides.markuserguideasseen2
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/{message-id}/archived
+      name: v1-users-user-id-guides-messages-message-id-archived
+      description: REST surface for v1-users-user_id-guides-messages-message_id-archived.
+      operations:
+      - method: PUT
+        name: markuserguideasarchived
+        description: Mark guide as archived
+        call: knock-guides.markuserguideasarchived
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/{message-id}/interacted
+      name: v1-users-user-id-guides-messages-message-id-interacted
+      description: REST surface for v1-users-user_id-guides-messages-message_id-interacted.
+      operations:
+      - method: PUT
+        name: markuserguideasinteracted
+        description: Mark guide as interacted
+        call: knock-guides.markuserguideasinteracted
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/messages/{message-id}/seen
+      name: v1-users-user-id-guides-messages-message-id-seen
+      description: REST surface for v1-users-user_id-guides-messages-message_id-seen.
+      operations:
+      - method: PUT
+        name: markuserguideasseen
+        description: Mark guide as seen
+        call: knock-guides.markuserguideasseen
+        with:
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/users/{user-id}/guides/{channel-id}
+      name: v1-users-user-id-guides-channel-id
+      description: REST surface for v1-users-user_id-guides-channel_id.
+      operations:
+      - method: GET
+        name: listuserguides
+        description: List guides
+        call: knock-guides.listuserguides
+        with:
+          user_id: rest.user_id
+          channel_id: rest.channel_id
+          tenant: rest.tenant
+          data: rest.data
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: knock-guides-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knock API — Guides. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: reset-guide-engagement
+      description: Reset guide engagement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.resetuserguideengagement
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-unarchived
+      description: Mark guide as unarchived
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: knock-guides.markuserguideasunarchived
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-archived
+      description: Mark guide as archived
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasarchived2
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-interacted
+      description: Mark guide as interacted
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasinteracted2
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-seen
+      description: Mark guide as seen
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasseen2
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-archived-2
+      description: Mark guide as archived
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasarchived
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-interacted-2
+      description: Mark guide as interacted
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasinteracted
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-guide-seen-2
+      description: Mark guide as seen
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: knock-guides.markuserguideasseen
+      with:
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-guides
+      description: List guides
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: knock-guides.listuserguides
+      with:
+        user_id: tools.user_id
+        channel_id: tools.channel_id
+        tenant: tools.tenant
+        data: tools.data
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.

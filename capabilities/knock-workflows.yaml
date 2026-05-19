@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knock API — Workflows
+  description: 'Knock API — Workflows. 2 operations. Lead operation: Cancel workflow. Self-contained Naftiko capability covering
+    one Knock business surface.'
+  tags:
+  - Knock
+  - Workflows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOCK_API_KEY: KNOCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: knock-workflows
+    baseUri: https://api.knock.app
+    description: Knock API — Workflows business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-workflows-key-cancel
+      path: /v1/workflows/{key}/cancel
+      operations:
+      - name: cancelworkflow
+        method: POST
+        description: Cancel workflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: The key of the workflow to cancel.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-workflows-key-trigger
+      path: /v1/workflows/{key}/trigger
+      operations:
+      - name: triggerworkflow2
+        method: POST
+        description: Trigger workflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: Key of the workflow to trigger.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KNOCK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: knock-workflows-rest
+    port: 8080
+    description: REST adapter for Knock API — Workflows. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/workflows/{key}/cancel
+      name: v1-workflows-key-cancel
+      description: REST surface for v1-workflows-key-cancel.
+      operations:
+      - method: POST
+        name: cancelworkflow
+        description: Cancel workflow
+        call: knock-workflows.cancelworkflow
+        with:
+          key: rest.key
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/workflows/{key}/trigger
+      name: v1-workflows-key-trigger
+      description: REST surface for v1-workflows-key-trigger.
+      operations:
+      - method: POST
+        name: triggerworkflow2
+        description: Trigger workflow
+        call: knock-workflows.triggerworkflow2
+        with:
+          key: rest.key
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: knock-workflows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knock API — Workflows. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: cancel-workflow
+      description: Cancel workflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: knock-workflows.cancelworkflow
+      with:
+        key: tools.key
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: trigger-workflow
+      description: Trigger workflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: knock-workflows.triggerworkflow2
+      with:
+        key: tools.key
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

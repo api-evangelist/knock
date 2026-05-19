@@ -109,6 +109,8 @@ apis:
   - type: OpenAPI
     url: openapi/knock-openapi.json
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/knockcrm
 - type: Website
   url: https://knock.app/
 - type: Plans
