@@ -12,7 +12,7 @@ tags:
   - Push
   - Workflows
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-29'
 specificationVersion: '0.19'
 apis:
   - name: Knock Workflows API
@@ -74,6 +74,8 @@ apis:
       url: https://docs.knock.app/reference
     - type: OpenAPI
       url: openapi/knock-openapi.json
+    - type: AsyncAPI
+      url: asyncapi/knock-asyncapi.yml
   - name: Knock Guides API
     description: Step-by-step in-app guided experiences.
     humanURL: https://docs.knock.app/reference

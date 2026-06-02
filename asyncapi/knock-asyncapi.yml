@@ -1,0 +1,449 @@
+asyncapi: '2.6.0'
+id: 'urn:com:knock:realtime:feeds'
+info:
+  title: Knock Real-Time In-App Feed (Phoenix Channels)
+  version: '1.0.0'
+  description: |
+    AsyncAPI specification for Knock's real-time in-app notification feed
+    transport. Knock exposes a Phoenix Channels WebSocket that pushes feed
+    updates to subscribed clients. The connection is initiated by Knock's
+    client SDKs (e.g. `@knocklabs/client`), which wrap a `phoenix` JS
+    `Socket` and `Channel` to subscribe to per-user feed topics.
+
+    Sources used to build this spec (no fabricated events):
+      - https://docs.knock.app/in-app-ui/api-overview (documents the
+        `new-message` real-time event)
+      - https://docs.knock.app/in-app-ui/feeds/overview
+      - https://docs.knock.app/in-app-ui/feeds/socket-behavior
+      - https://github.com/knocklabs/javascript (open-source SDK that
+        defines the socket URL pattern, channel topic format, and event
+        payload shape used by Knock's in-app feed service)
+
+    The single server-pushed domain event is `new-message`. The other
+    `items.*` and `messages.new` names exposed by Knock's JavaScript SDK
+    are *client-side* re-broadcasts derived from this event plus REST
+    responses; they are not Phoenix wire events and are therefore not
+    modeled as messages on this channel.
+
+  contact:
+    name: Knock
+    url: https://knock.app
+  license:
+    name: Proprietary
+    url: https://knock.app/legal
+  tags:
+    - name: notifications
+    - name: in-app-feed
+    - name: phoenix-channels
+    - name: websocket
+    - name: real-time
+
+defaultContentType: application/json
+
+servers:
+  production:
+    url: api.knock.app/ws/v1
+    protocol: wss
+    description: |
+      Knock production Phoenix WebSocket endpoint. The base URL is derived
+      from the SDK default host `https://api.knock.app` with `http`
+      replaced by `ws`, suffixed with `/ws/v1` (see
+      `@knocklabs/client` `ApiClient` constructor).
+    protocolVersion: '2.0.0'
+    security:
+      - apiKey: []
+      - userToken: []
+    bindings:
+      ws:
+        query:
+          type: object
+          properties:
+            vsn:
+              type: string
+              description: Phoenix protocol version (e.g. "2.0.0").
+              default: '2.0.0'
+            api_key:
+              type: string
+              description: Knock public API key used to authenticate the socket.
+            user_token:
+              type: string
+              description: |
+                Optional signed user token used when enhanced security mode
+                is enabled in the Knock environment.
+
+channels:
+  'feeds:{feed_id}:{user_id}':
+    description: |
+      Per-user, per-feed Phoenix Channel topic. `feed_id` is the
+      Knock in-app feed channel identifier (a UUID configured in the
+      Knock dashboard). `user_id` is the Knock user identifier of the
+      authenticated recipient.
+
+      Source: `socketChannelTopic` in the Knock JS SDK returns
+      ``feeds:${feedId}:${userId}`` and the in-source comment in
+      `socket-manager.ts` documents the topic as
+      `feeds:<channel_id>:<user_id>`.
+    parameters:
+      feed_id:
+        description: The Knock in-app feed channel UUID.
+        schema:
+          type: string
+          format: uuid
+      user_id:
+        description: The Knock user identifier of the subscribed recipient.
+        schema:
+          type: string
+    bindings: {}
+    subscribe:
+      operationId: receiveFeedEvents
+      summary: Receive real-time updates for an in-app feed.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/NewMessage'
+          - $ref: '#/components/messages/PhxReply'
+          - $ref: '#/components/messages/PhxError'
+          - $ref: '#/components/messages/PhxClose'
+    publish:
+      operationId: sendChannelControl
+      summary: Phoenix Channel control frames sent by the client.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/PhxJoin'
+          - $ref: '#/components/messages/PhxLeave'
+          - $ref: '#/components/messages/PhxHeartbeat'
+
+components:
+  securitySchemes:
+    apiKey:
+      type: httpApiKey
+      in: query
+      name: api_key
+      description: Knock public API key passed as the `api_key` query param.
+    userToken:
+      type: httpApiKey
+      in: query
+      name: user_token
+      description: |
+        Signed user token passed as the `user_token` query param when
+        enhanced security mode is enabled.
+
+  messages:
+    NewMessage:
+      name: new-message
+      title: New Message
+      summary: |
+        Emitted by Knock when a new in-app message has been produced for
+        the subscribed user/feed. Does not contain the full message; it
+        carries the updated feed `metadata` (badge counts) and an `attn`
+        list naming which feed-client reference ids should react.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_NewMessage'
+      examples:
+        - name: new-message-frame
+          summary: A new-message frame as seen on the wire.
+          payload:
+            - null
+            - null
+            - 'feeds:9c2a8b91-ad6e-4d54-9c1f-3a5c6f1e2dcb:user_123'
+            - 'new-message'
+            - event: 'new-message'
+              metadata:
+                total_count: 42
+                unread_count: 5
+                unseen_count: 5
+              data:
+                'ref-1':
+                  metadata:
+                    total_count: 42
+                    unread_count: 5
+                    unseen_count: 5
+              attn:
+                - 'ref-1'
+
+    PhxJoin:
+      name: phx_join
+      title: Phoenix Join
+      summary: Client request to join the feed channel.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_PhxJoin'
+
+    PhxLeave:
+      name: phx_leave
+      title: Phoenix Leave
+      summary: Client request to leave the feed channel.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_PhxLeave'
+
+    PhxHeartbeat:
+      name: heartbeat
+      title: Phoenix Heartbeat
+      summary: Periodic heartbeat sent by the client to keep the socket alive.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_Heartbeat'
+
+    PhxReply:
+      name: phx_reply
+      title: Phoenix Reply
+      summary: Server reply to a client push (e.g. response to `phx_join`).
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_PhxReply'
+
+    PhxError:
+      name: phx_error
+      title: Phoenix Error
+      summary: Channel-level error pushed by the server.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_PhxError'
+
+    PhxClose:
+      name: phx_close
+      title: Phoenix Close
+      summary: Channel closed by the server.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PhoenixFrame_PhxClose'
+
+  schemas:
+    # ------------------------------------------------------------------
+    # Phoenix v2 wire format: each frame is a JSON array of the form
+    #   [join_ref, ref, topic, event, payload]
+    # See https://hexdocs.pm/phoenix/writing_a_channels_client.html
+    # ------------------------------------------------------------------
+    PhoenixFrame_NewMessage:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: 'null'
+          description: join_ref (null for server-pushed events).
+        - type: 'null'
+          description: ref (null for server-pushed events).
+        - type: string
+          description: Channel topic, e.g. `feeds:{feed_id}:{user_id}`.
+        - type: string
+          enum: ['new-message']
+          description: Event name.
+        - $ref: '#/components/schemas/NewMessagePayload'
+
+    PhoenixFrame_PhxJoin:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: [string, 'null']
+          description: join_ref assigned by the client for this join.
+        - type: string
+          description: Client message ref.
+        - type: string
+          description: Channel topic, e.g. `feeds:{feed_id}:{user_id}`.
+        - type: string
+          enum: ['phx_join']
+        - $ref: '#/components/schemas/FeedClientOptions'
+
+    PhoenixFrame_PhxLeave:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: [string, 'null']
+        - type: string
+        - type: string
+        - type: string
+          enum: ['phx_leave']
+        - type: object
+          additionalProperties: true
+
+    PhoenixFrame_Heartbeat:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: 'null'
+        - type: string
+          description: Client message ref.
+        - type: string
+          enum: ['phoenix']
+          description: Heartbeats are sent on the special `phoenix` topic.
+        - type: string
+          enum: ['heartbeat']
+        - type: object
+          additionalProperties: false
+
+    PhoenixFrame_PhxReply:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: [string, 'null']
+        - type: string
+        - type: string
+        - type: string
+          enum: ['phx_reply']
+        - type: object
+          properties:
+            status:
+              type: string
+              enum: ['ok', 'error']
+            response:
+              type: object
+              additionalProperties: true
+          required:
+            - status
+            - response
+
+    PhoenixFrame_PhxError:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: [string, 'null']
+        - type: [string, 'null']
+        - type: string
+        - type: string
+          enum: ['phx_error']
+        - type: object
+          additionalProperties: true
+
+    PhoenixFrame_PhxClose:
+      type: array
+      minItems: 5
+      maxItems: 5
+      items:
+        - type: [string, 'null']
+        - type: [string, 'null']
+        - type: string
+        - type: string
+          enum: ['phx_close']
+        - type: object
+          additionalProperties: true
+
+    # ------------------------------------------------------------------
+    # Domain payloads
+    # ------------------------------------------------------------------
+    NewMessagePayload:
+      type: object
+      description: |
+        Payload of the `new-message` event as defined by the Knock
+        JavaScript client (`SocketEventPayload` /
+        `NewMessageEventPayload`). The `metadata` top-level field is
+        retained for legacy reasons; new consumers should read
+        `data.<reference_id>.metadata`. The `attn` field lists the
+        feed-client reference ids that should be notified of this event.
+      properties:
+        event:
+          type: string
+          enum: ['new-message']
+        metadata:
+          $ref: '#/components/schemas/FeedMetadata'
+          description: |
+            Deprecated top-level feed metadata. Exists for legacy reasons.
+        data:
+          type: object
+          description: |
+            Feed metadata, keyed by feed-client reference id. Allows a
+            single socket to multiplex updates to multiple feed clients
+            with differing query params.
+          additionalProperties:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/FeedMetadata'
+            required:
+              - metadata
+        attn:
+          type: array
+          description: |
+            List of feed-client reference ids that should react to this
+            event. Used by the SDK to fan-out the event to only the
+            matching subscribers.
+          items:
+            type: string
+      required:
+        - event
+        - metadata
+        - data
+        - attn
+
+    FeedMetadata:
+      type: object
+      description: |
+        Aggregate counts for a feed (as defined by the in-app feed API).
+      properties:
+        total_count:
+          type: integer
+          minimum: 0
+          description: Total number of items in the feed.
+        unread_count:
+          type: integer
+          minimum: 0
+          description: Number of feed items not yet marked as read.
+        unseen_count:
+          type: integer
+          minimum: 0
+          description: Number of feed items not yet marked as seen.
+      required:
+        - total_count
+        - unread_count
+        - unseen_count
+
+    FeedClientOptions:
+      type: object
+      description: |
+        Query parameters sent by the client when joining a feed channel.
+        Source: `FeedClientOptions` interface in `@knocklabs/client`.
+      properties:
+        before:
+          type: string
+        after:
+          type: string
+        page_size:
+          type: integer
+          minimum: 1
+        status:
+          type: string
+          enum: ['unread', 'read', 'unseen', 'seen', 'all']
+        source:
+          type: string
+          description: Scope to a particular workflow source.
+        tenant:
+          type: string
+          description: Scope to a particular tenant.
+        has_tenant:
+          type: boolean
+        workflow_categories:
+          type: array
+          items:
+            type: string
+        archived:
+          type: string
+          enum: ['include', 'exclude', 'only']
+        trigger_data:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: string
+              - type: number
+              - type: boolean
+              - type: 'null'
+        inserted_at_date_range:
+          type: object
+          properties:
+            start:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+            inclusive:
+              type: boolean
+        mode:
+          type: string
+          enum: ['rich', 'compact']
+          default: 'compact'
+      additionalProperties: true
