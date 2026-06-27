@@ -123,7 +123,7 @@ common:
     url: rate-limits/knock-rate-limits.yml
   - type: FinOps
     url: finops/knock-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.knock.app/llms.txt
 maintainers:
   - FN: Kin Lane
