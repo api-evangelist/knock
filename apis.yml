@@ -111,6 +111,10 @@ apis:
     - type: OpenAPI
       url: openapi/knock-openapi.json
 common:
+  - type: DomainSecurity
+    url: security/knock-domain-security.yml
+  - type: Authentication
+    url: authentication/knock-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/knocklabs
   - type: LinkedIn
