@@ -111,6 +111,8 @@ apis:
     - type: OpenAPI
       url: openapi/knock-openapi.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/knock-agentic-access.yml
   - type: DomainSecurity
     url: security/knock-domain-security.yml
   - type: Authentication
