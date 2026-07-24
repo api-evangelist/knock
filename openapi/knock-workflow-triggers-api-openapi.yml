@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: Knock Audiences Workflow Triggers API
+  version: '1.0'
+  description: An Audience is a segment of users.
+servers:
+- url: https://api.knock.app
+  variables: {}
+security:
+- BearerAuth: []
+tags:
+- description: Operations for triggering and canceling workflow executions.
+  name: Workflow Triggers
+paths:
+  /v1/notify/cancel:
+    post:
+      callbacks: {}
+      description: Cancels a previously triggered workflow using the provided cancellation key.
+      operationId: cancelWorkflow (2)
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cancel Request'
+        description: Cancel Payload
+        required: true
+      responses:
+        '204':
+          description: No Content
+      summary: Cancel workflow
+      tags:
+      - Workflow Triggers
+      x-ratelimit-tier: 3
+  /v1/notify:
+    post:
+      callbacks: {}
+      description: Triggers a workflow with the given key, actor, recipients, and optional data.
+      operationId: triggerWorkflow
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notify Request'
+        description: Notify Payload
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notify Response'
+          description: OK
+      summary: Trigger workflow
+      tags:
+      - Workflow Triggers
+      x-ratelimit-tier: 3
+components:
+  schemas:
+    Notify Response:
+      description: The response from triggering a workflow.
+      example:
+        result_id: wf_1234567890abcdef
+      properties:
+        result_id:
+          description: This value allows you to track individual messages associated with this trigger request.
+          type: string
+          x-struct: null
+          x-validate: null
+      required:
+      - result_id
+      title: Notify Response
+      type: object
+      x-struct: Elixir.SwitchboardWeb.Specs.Notify.Responses.NotifyResponse
+      x-validate: null
+    RecipientReference:
+      description: A reference to a recipient, either a user identifier (string) or an object reference (ID, collection).
+      example: user_123
+      oneOf:
+      - description: The ID of the user which is used as the reference for the recipient.
+        example: user_123
+        nullable: false
+        title: UserReference
+        type: string
+        x-struct: null
+        x-validate: null
+      - description: A reference to a recipient object.
+        example:
+          collection: projects
+          id: project_123
+        properties:
+          collection:
+            description: The collection the recipient object belongs to.
+            example: projects
+            nullable: false
+            type: string
+            x-struct: null
+            x-validate: null
+          id:
+            description: An identifier for the recipient object.
+            example: project_123
+            nullable: false
+            type: string
+            x-struct: null
+            x-validate: null
+        title: ObjectReference
+        type: object
+        x-struct: null
+        x-validate: null
+      title: RecipientReference
+      x-struct: Elixir.SwitchboardWeb.V1.Specs.RecipientReference
+      x-validate: null
+    Cancel Request:
+      description: When invoked using a specific workflow key and cancellation key, will cancel any queued workflow runs associated with that key/cancellation key pair. Can optionally provide one or more recipients to scope the request to.
+      example:
+        cancellation_key: comment_123
+        name: new-comment
+        recipients:
+        - user_456
+      properties:
+        cancellation_key:
+          description: An optional key that is used to reference a specific workflow trigger request when issuing a [workflow cancellation](/send-notifications/canceling-workflows) request. Must be provided while triggering a workflow in order to enable subsequent cancellation. Should be unique across trigger requests to avoid unintentional cancellations.
+          type: string
+          x-struct: null
+          x-validate: null
+        name:
+          description: The key of the workflow to cancel.
+          type: string
+          x-struct: null
+          x-validate: null
+        recipients:
+          description: A list of recipients to cancel the notification for. If omitted, cancels for all recipients associated with the cancellation key.
+          items:
+            $ref: '#/components/schemas/RecipientReference'
+          type: array
+          x-struct: null
+          x-validate: null
+      required:
+      - name
+      - cancellation_key
+      title: Cancel Request
+      type: object
+      x-struct: Elixir.SwitchboardWeb.Specs.Notify.Requests.CancelRequest
+      x-validate: null
+    Notify Request:
+      description: A request to trigger a notification workflow.
+      example:
+        actor: user_123
+        cancellation_key: comment_123
+        data:
+          comment: Great work on this feature!
+          url: https://example.com/projects/123/comments/456
+        name: new-comment
+        recipients:
+        - user_456
+        - collection: projects
+          id: project_789
+      properties:
+        actor:
+          $ref: '#/components/schemas/RecipientReference'
+        cancellation_key:
+          description: An optional key that is used to reference a specific workflow trigger request when issuing a [workflow cancellation](/send-notifications/canceling-workflows) request. Must be provided while triggering a workflow in order to enable subsequent cancellation. Should be unique across trigger requests to avoid unintentional cancellations.
+          nullable: true
+          type: string
+          x-struct: null
+          x-validate: null
+        data:
+          additionalProperties: true
+          description: An optional map of data to pass into the workflow execution. There is a 10MB limit on the size of the full `data` payload. Any individual string value greater than 1024 bytes in length will be [truncated](/developer-tools/api-logs#log-truncation) in your logs.
+          nullable: true
+          type: object
+          x-struct: null
+          x-validate: null
+        name:
+          description: The key of the workflow to trigger.
+          type: string
+          x-struct: null
+          x-validate: null
+        recipients:
+          description: A list of recipients.
+          items:
+            $ref: '#/components/schemas/RecipientReference'
+          type: array
+          x-struct: null
+          x-validate: null
+      required:
+      - name
+      - actor
+      - recipients
+      title: Notify Request
+      type: object
+      x-struct: Elixir.SwitchboardWeb.Specs.Notify.Requests.TriggerRequest
+      x-validate: null
+  securitySchemes:
+    BearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
