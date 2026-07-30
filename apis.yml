@@ -4,7 +4,20 @@ name: Knock
 kind: company
 description: Knock is a notification infrastructure platform with workflows, channels (email, SMS, push, in-app), preferences,
   and digests. Stripe-style API for sending and orchestrating multi-channel notifications.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/knock.png
 tags:
   - Notifications
   - Email
@@ -15,101 +28,288 @@ created: '2026-05-08'
 modified: '2026-05-29'
 specificationVersion: '0.19'
 apis:
-  - name: Knock Workflows API
-    description: Trigger and orchestrate notification workflows with batch, throttle and delay logic.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Workflows
-    - Orchestration
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Messages API
-    description: Manage individual messages with delivery and engagement tracking.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Messages
-    - Delivery
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Users API
-    description: Identify users, manage preferences, channel data, subscriptions and schedules.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Users
-    - Recipients
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Objects API
-    description: Non-user resources that receive notifications or have subscribers.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Objects
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Feeds API
-    description: In-app message feeds with pagination and filtering for client rendering.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Feeds
-    - In-App
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-    - type: AsyncAPI
-      url: asyncapi/knock-asyncapi.yml
-  - name: Knock Guides API
-    description: Step-by-step in-app guided experiences.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Guides
-    - Onboarding
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Schedules API
-    description: Recurring and one-time workflow triggers per recipient.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Schedules
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
-  - name: Knock Preferences API
-    description: User and object preferences by channel, category, or workflow.
-    humanURL: https://docs.knock.app/reference
-    baseURL: https://api.knock.app/v1
-    tags:
-    - Preferences
-    properties:
-    - type: Documentation
-      url: https://docs.knock.app/reference
-    - type: OpenAPI
-      url: openapi/knock-openapi.json
+- aid: knock:knock-audiences-api
+  name: Knock Audiences API
+  description: An Audience is a segment of users.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Audiences
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-audiences-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-bulk-operations-api
+  name: Knock Bulk operations API
+  description: >-
+    A bulk operation is a set of changes applied across zero or more records triggered via a call to the
+    Knock API and performed asynchronously.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Bulk operations
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-bulk-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-channel-data-api
+  name: Knock Channel data API
+  description: >-
+    Channel data is data that is specific to a recipient and a channel, like push tokens, or one or more
+    Slack connections.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Channel data
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-channel-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-feeds-api
+  name: Knock Feeds API
+  description: The Feeds API from Knock — 2 operation(s) for feeds.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Feeds
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-feeds-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-guides-api
+  name: Knock Guides API
+  description: The Guides API from Knock — 8 operation(s) for guides.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Guides
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-guides-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-integrations-api
+  name: Knock Integrations API
+  description: The Integrations API from Knock — 2 operation(s) for integrations.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-messages-api
+  name: Knock Messages API
+  description: A message sent to a single recipient on a channel.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-messages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-microsoft-teams-api
+  name: Knock Microsoft Teams API
+  description: The Microsoft Teams API from Knock — 4 operation(s) for microsoft teams.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Microsoft Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-microsoft-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-objects-api
+  name: Knock Objects API
+  description: An object represents a resource in your system that you want to map into Knock.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Objects
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-objects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-preferences-api
+  name: Knock Preferences API
+  description: >-
+    Preferences are a way to configure how notifications are sent to recipients. They are a set of configuration
+    that determines whether a recipient should receive a notification for a given workflow on a specific
+    channel.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Preferences
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-preferences-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-providers-api
+  name: Knock Providers API
+  description: >-
+    A provider represents a third-party service that Knock integrates with and is configured via a channel.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-schedules-api
+  name: Knock Schedules API
+  description: >-
+    A schedule is a per-recipient, timezone-aware configuration for when to invoke a workflow.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-slack-api
+  name: Knock Slack API
+  description: The Slack API from Knock — 3 operation(s) for slack.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Slack
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-slack-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-subscriptions-api
+  name: Knock Subscriptions API
+  description: >-
+    A subscription represents a connection between a recipient and an object, used to represent a list.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-tenants-api
+  name: Knock Tenants API
+  description: >-
+    A tenant represents a top-level entity from your system, like a company, organization, account, or
+    workspace.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Tenants
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-tenants-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-users-api
+  name: Knock Users API
+  description: >-
+    A user is an individual from your system, represented in Knock. They are most commonly a recipient
+    of a notification.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-workflow-recipient-runs-api
+  name: Knock Workflow recipient runs API
+  description: >-
+    A workflow run represents an individual execution of a workflow for a specific recipient.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Workflow recipient runs
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-workflow-recipient-runs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-workflow-triggers-api
+  name: Knock Workflow Triggers API
+  description: Operations for triggering and canceling workflow executions.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Workflow Triggers
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-workflow-triggers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
+- aid: knock:knock-workflows-api
+  name: Knock Workflows API
+  description: >-
+    A workflow is a structured set of steps that is triggered to produce notifications sent over channels.
+  humanURL: https://docs.knock.app/reference
+  baseURL: https://api.knock.app/v1
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/knock-workflows-api-openapi.yml
+  - type: Documentation
+    url: https://docs.knock.app/reference
+  - type: AsyncAPI
+    url: asyncapi/knock-asyncapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/knock-agentic-access.yml
