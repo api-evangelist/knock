@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "156ff7a9-fd5a-42a6-8e28-a90764f6957b",
+      "name": "Audiences",
+      "description": {
+        "content": "An Audience is a segment of users.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ac3cc98-ccda-4762-9b91-4193a74c2c2a",
+          "name": "Remove members",
+          "request": {
+            "name": "Remove members",
+            "description": {
+              "content": "Removes one or more members from the specified audience.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "audiences",
+                ":key",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the audience."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"members\": [\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e838d743-d080-4e16-b132-af41a567617b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "audiences",
+                    ":key",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the audience."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"members\": [\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"97c5837d-c65c-4d54-aa39-080eeb81c69d\": {\n            \"tokens\": [\n              \"push_token_xxx\"\n            ]\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"default\": {\n            \"categories\": {\n              \"transactional\": {\n                \"channel_types\": {\n                  \"email\": false\n                }\n              }\n            },\n            \"channel_types\": {\n              \"email\": true\n            }\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"ingen_isla_nublar\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"97c5837d-c65c-4d54-aa39-080eeb81c69d\": {\n            \"tokens\": [\n              \"push_token_xxx\"\n            ]\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"default\": {\n            \"categories\": {\n              \"transactional\": {\n                \"channel_types\": {\n                  \"email\": false\n                }\n              }\n            },\n            \"channel_types\": {\n              \"email\": true\n            }\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"ingen_isla_nublar\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0252a19-b043-47fe-93e8-b5f9a3d5be95",
+          "name": "List members",
+          "request": {
+            "name": "List members",
+            "description": {
+              "content": "Returns a paginated list of members for the specified audience.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "audiences",
+                ":key",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the audience."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bf75026-dcae-4850-82be-df325457f1eb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "audiences",
+                    ":key",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the audience."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"AudienceMember\",\n      \"added_at\": \"2025-01-01T00:00:00Z\",\n      \"user_id\": \"user_123\",\n      \"user\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1976-03-19T19:55:11.363Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1981-03-15T03:48:05.804Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"tenant\": \"acme_corp\"\n    },\n    {\n      \"__typename\": \"AudienceMember\",\n      \"added_at\": \"2025-01-01T00:00:00Z\",\n      \"user_id\": \"user_123\",\n      \"user\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1994-04-27T12:07:09.619Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"2011-08-30T23:50:04.767Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"tenant\": \"acme_corp\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ac30168-722b-4ec1-b295-f533821129b0",
+          "name": "Add members",
+          "request": {
+            "name": "Add members",
+            "description": {
+              "content": "Adds one or more members to the specified audience.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "audiences",
+                ":key",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "create_audience",
+                  "value": "<boolean>",
+                  "description": "Create the audience if it does not exist."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the audience."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"members\": [\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<string>\",\n        \"avatar\": \"<string>\",\n        \"channel_data\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"created_at\": \"<dateTime>\",\n        \"email\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"name\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"preferences\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"timezone\": \"<string>\"\n      },\n      \"tenant\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f93e9a8-ca8d-44f6-83c5-d79e483a4a65",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "audiences",
+                    ":key",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "create_audience",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the audience."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"members\": [\n    {\n      \"tenant\": \"ingen_isla_nublar\",\n      \"user\": {\n        \"email\": \"ellie@ingen.net\",\n        \"id\": \"dr_sattler\",\n        \"name\": \"Dr. Ellie Sattler\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cca37653-3742-4239-abd3-6130fd35307a",
+    "name": "Knock Audiences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

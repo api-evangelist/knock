@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knock Audiences Guides API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Guides",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mark guide as seen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/seen",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a guide has been seen by a user, triggering any associated seen events."
+        },
+        {
+          "info": {
+            "name": "Mark guide as seen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/:message_id/seen",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a guide has been seen by a user, triggering any associated seen events."
+        },
+        {
+          "info": {
+            "name": "Mark guide as archived",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/archived",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a guide has been archived by a user, triggering any associated archived events."
+        },
+        {
+          "info": {
+            "name": "Mark guide as unarchived",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/archived",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a guide has been unarchived, triggering any associated unarchived events."
+        },
+        {
+          "info": {
+            "name": "Mark guide as interacted",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/interacted",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a user has interacted with a guide, triggering any associated interacted events."
+        },
+        {
+          "info": {
+            "name": "Reset guide engagement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/engagements/reset",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resets the engagement state of a guide for a user, removing the guide's engagement log entry so the next interaction creates a fresh engagement."
+        },
+        {
+          "info": {
+            "name": "List guides",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/:channel_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              },
+              {
+                "name": "channel_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the channel."
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query",
+                "description": "The tenant ID to use for targeting and rendering guides."
+              },
+              {
+                "name": "data",
+                "value": "",
+                "type": "query",
+                "description": "The data (JSON encoded object) to use for targeting and rendering guides."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of guides to filter by."
+              }
+            ]
+          },
+          "docs": "Returns a list of eligible in-app guides for a specific user and channel."
+        },
+        {
+          "info": {
+            "name": "Mark guide as interacted",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/:message_id/interacted",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a user has interacted with a guide, triggering any associated interacted events."
+        },
+        {
+          "info": {
+            "name": "Mark guide as archived",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.knock.app/v1/users/:user_id/guides/messages/:message_id/archived",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records that a guide has been archived by a user, triggering any associated archived events."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

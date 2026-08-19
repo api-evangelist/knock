@@ -1,0 +1,4464 @@
+{
+  "item": [
+    {
+      "id": "aa59c8f5-6247-4280-85bd-1013e3550889",
+      "name": "Users",
+      "description": {
+        "content": "A user is an individual from your system, represented in Knock. They are most commonly a recipient of a notification.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "931e94cd-e702-4db4-8f60-3746cbcb58a3",
+          "name": "Mark guide as seen",
+          "request": {
+            "name": "Mark guide as seen",
+            "description": {
+              "content": "Records that a guide has been seen by a user, triggering any associated seen events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "seen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be4394b8-01ce-4abc-9033-6435c0bfab15",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "seen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb921f67-288f-409f-9300-ad6204457ae4",
+          "name": "List feed items",
+          "request": {
+            "name": "List feed items",
+            "description": {
+              "content": "Returns a paginated list of feed items for a user in reverse chronological order, including metadata about the feed. If the user has not yet been identified within Knock, an empty feed will be returned.\n\nYou can customize the response using [response filters](/integrations/in-app/knock#customizing-api-response-content) to exclude or only include specific properties on your resources.\n\n**Notes:**\n* When making this call from a client-side environment, use your publishable key along with a user token.\n* This endpoint’s rate limit is always scoped per-user and per-environment. This is true even for requests made without a signed user token.\n* Any [attachments](/integrations/email/attachments) present in trigger data are automatically excluded from both the `data` and `activities` fields of `UserInAppFeedResponse`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "feeds",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The status of the feed items."
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "The workflow key associated with the message in the feed."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The tenant associated with the feed items."
+                },
+                {
+                  "disabled": false,
+                  "key": "has_tenant",
+                  "value": "<boolean>",
+                  "description": "Whether the feed items have a tenant."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "The workflow categories of the feed items."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "The workflow categories of the feed items."
+                },
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<string>",
+                  "description": "The archived status of the feed items."
+                },
+                {
+                  "disabled": false,
+                  "key": "trigger_data",
+                  "value": "<string>",
+                  "description": "The trigger data of the feed items (as a JSON string)."
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `en-US`). When not provided, will default to the locale that the feed items were rendered in. Only available for enterprise plan customers using custom translations."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field paths to exclude from the response. Use dot notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels deep."
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "rich",
+                  "description": "The mode to render the feed items in. Can be `compact` or `rich`. Defaults to `rich`. When `mode` is `compact`, feed items will not have `activities` and `total_activities` fields; the `data` field will not include nested arrays and objects; and the `actors` field will only have up to one actor."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after or on the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before or on the given date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "997d44cf-8704-4d60-9890-3c80417f48b6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "feeds",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "unread"
+                    },
+                    {
+                      "key": "source",
+                      "value": "my_source"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "my_tenant"
+                    },
+                    {
+                      "key": "has_tenant",
+                      "value": "true"
+                    },
+                    {
+                      "key": "workflow_categories[]",
+                      "value": "my_workflow_category"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "exclude"
+                    },
+                    {
+                      "key": "trigger_data",
+                      "value": "{ \"key\": \"value\" }"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en-US"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "entries.archived_at,entries.clicked_at"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "compact"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "inserted_at.gt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.gte",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lte",
+                      "value": "2025-01-01T00:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"FeedItem\",\n      \"id\": \"2FVHPWxRqNuXQ9krvNP5A6Z4qXe\",\n      \"inserted_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"actors\": [\n        {\n          \"__typename\": \"User\",\n          \"id\": \"string\",\n          \"updated_at\": \"1981-04-03T10:24:04.545Z\",\n          \"avatar\": \"string\",\n          \"created_at\": \"1946-10-07T15:08:12.190Z\",\n          \"email\": \"string\",\n          \"name\": \"string\",\n          \"phone_number\": \"string\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"__typename\": \"User\",\n          \"id\": \"string\",\n          \"updated_at\": \"1973-05-02T23:58:35.996Z\",\n          \"avatar\": \"string\",\n          \"created_at\": \"1970-06-12T00:02:43.729Z\",\n          \"email\": \"string\",\n          \"name\": \"string\",\n          \"phone_number\": \"string\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"activities\": [\n        {\n          \"__typename\": \"Activity\",\n          \"actor\": null,\n          \"data\": {\n            \"foo\": \"bar\"\n          },\n          \"inserted_at\": \"2024-01-01T00:00:00Z\",\n          \"recipient\": {\n            \"__typename\": \"User\",\n            \"avatar\": null,\n            \"created_at\": null,\n            \"email\": \"jane@ingen.net\",\n            \"name\": \"Jane Doe\",\n            \"phone_number\": null,\n            \"timezone\": null,\n            \"updated_at\": \"2024-05-22T12:00:00Z\"\n          },\n          \"updated_at\": \"2024-01-01T00:00:00Z\"\n        },\n        {\n          \"__typename\": \"Activity\",\n          \"actor\": null,\n          \"data\": {\n            \"foo\": \"bar\"\n          },\n          \"inserted_at\": \"2024-01-01T00:00:00Z\",\n          \"recipient\": {\n            \"__typename\": \"User\",\n            \"avatar\": null,\n            \"created_at\": null,\n            \"email\": \"jane@ingen.net\",\n            \"name\": \"Jane Doe\",\n            \"phone_number\": null,\n            \"timezone\": null,\n            \"updated_at\": \"2024-05-22T12:00:00Z\"\n          },\n          \"updated_at\": \"2024-01-01T00:00:00Z\"\n        }\n      ],\n      \"blocks\": [\n        {\n          \"content\": \"This is a message in an app feed\",\n          \"name\": \"body\",\n          \"rendered\": \"<p>This is a message in an app feed</p>\",\n          \"type\": \"markdown\"\n        },\n        {\n          \"content\": \"This is a message in an app feed\",\n          \"name\": \"body\",\n          \"rendered\": \"<p>This is a message in an app feed</p>\",\n          \"type\": \"markdown\"\n        }\n      ],\n      \"source\": {\n        \"__typename\": \"Workflow\",\n        \"key\": \"string\",\n        \"version_id\": \"e0ebd85d-c25a-4e5a-219f-0c87d50dd4fb\",\n        \"categories\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"tenant\": \"string\",\n      \"total_activities\": 10,\n      \"total_actors\": 5,\n      \"data\": {\n        \"key_0\": 4026\n      },\n      \"archived_at\": \"string\",\n      \"clicked_at\": \"string\",\n      \"interacted_at\": \"string\",\n      \"link_clicked_at\": \"string\",\n      \"read_at\": \"string\",\n      \"seen_at\": \"string\"\n    },\n    {\n      \"__typename\": \"FeedItem\",\n      \"id\": \"2FVHPWxRqNuXQ9krvNP5A6Z4qXe\",\n      \"inserted_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"actors\": [\n        {\n          \"__typename\": \"User\",\n          \"id\": \"string\",\n          \"updated_at\": \"1996-03-16T16:27:20.920Z\",\n          \"avatar\": \"string\",\n          \"created_at\": \"2026-07-02T13:34:57.973Z\",\n          \"email\": \"string\",\n          \"name\": \"string\",\n          \"phone_number\": \"string\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"__typename\": \"User\",\n          \"id\": \"string\",\n          \"updated_at\": \"1997-07-24T20:39:07.501Z\",\n          \"avatar\": \"string\",\n          \"created_at\": \"2022-01-10T06:10:55.454Z\",\n          \"email\": \"string\",\n          \"name\": \"string\",\n          \"phone_number\": \"string\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"activities\": [\n        {\n          \"__typename\": \"Activity\",\n          \"actor\": null,\n          \"data\": {\n            \"foo\": \"bar\"\n          },\n          \"inserted_at\": \"2024-01-01T00:00:00Z\",\n          \"recipient\": {\n            \"__typename\": \"User\",\n            \"avatar\": null,\n            \"created_at\": null,\n            \"email\": \"jane@ingen.net\",\n            \"name\": \"Jane Doe\",\n            \"phone_number\": null,\n            \"timezone\": null,\n            \"updated_at\": \"2024-05-22T12:00:00Z\"\n          },\n          \"updated_at\": \"2024-01-01T00:00:00Z\"\n        },\n        {\n          \"__typename\": \"Activity\",\n          \"actor\": null,\n          \"data\": {\n            \"foo\": \"bar\"\n          },\n          \"inserted_at\": \"2024-01-01T00:00:00Z\",\n          \"recipient\": {\n            \"__typename\": \"User\",\n            \"avatar\": null,\n            \"created_at\": null,\n            \"email\": \"jane@ingen.net\",\n            \"name\": \"Jane Doe\",\n            \"phone_number\": null,\n            \"timezone\": null,\n            \"updated_at\": \"2024-05-22T12:00:00Z\"\n          },\n          \"updated_at\": \"2024-01-01T00:00:00Z\"\n        }\n      ],\n      \"blocks\": [\n        {\n          \"content\": \"This is a message in an app feed\",\n          \"name\": \"body\",\n          \"rendered\": \"<p>This is a message in an app feed</p>\",\n          \"type\": \"markdown\"\n        },\n        {\n          \"content\": \"This is a message in an app feed\",\n          \"name\": \"body\",\n          \"rendered\": \"<p>This is a message in an app feed</p>\",\n          \"type\": \"markdown\"\n        }\n      ],\n      \"source\": {\n        \"__typename\": \"Workflow\",\n        \"key\": \"string\",\n        \"version_id\": \"c2bb8067-f2e5-f38d-132b-cdd650018a93\",\n        \"categories\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"tenant\": \"string\",\n      \"total_activities\": 10,\n      \"total_actors\": 5,\n      \"data\": {\n        \"key_0\": true,\n        \"key_1\": 8720.02647850889\n      },\n      \"archived_at\": \"string\",\n      \"clicked_at\": \"string\",\n      \"interacted_at\": \"string\",\n      \"link_clicked_at\": \"string\",\n      \"read_at\": \"string\",\n      \"seen_at\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  },\n  \"vars\": {\n    \"key_0\": true,\n    \"key_1\": 5981.520286381132\n  },\n  \"meta\": {\n    \"__typename\": \"FeedMetadata\",\n    \"total_count\": 100,\n    \"unread_count\": 10,\n    \"unseen_count\": 5\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "687edfef-1736-4deb-bc30-51012084c0f7",
+          "name": "Get feed settings",
+          "request": {
+            "name": "Get feed settings",
+            "description": {
+              "content": "Returns the feed settings for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "feeds",
+                ":id",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba4f8a38-606d-4946-b782-f1f8c1501392",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "feeds",
+                    ":id",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"features\": {\n    \"branding_required\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcb0504f-81e3-43c5-881a-7b9c83defb35",
+          "name": "List user subscriptions",
+          "request": {
+            "name": "List user subscriptions",
+            "description": {
+              "content": "Retrieves a paginated list of subscriptions for a specific user, in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Associated resources to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Associated resources to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "objects[]",
+                  "value": "<string>",
+                  "description": "Only returns subscriptions for the specified object references."
+                },
+                {
+                  "disabled": false,
+                  "key": "objects[]",
+                  "value": "<string>",
+                  "description": "Only returns subscriptions for the specified object references."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The user ID to list subscriptions for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64ce3540-8acd-475f-b619-0b130b773b31",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "objects[]",
+                      "value": "user_123"
+                    },
+                    {
+                      "key": "objects[]",
+                      "value": "user_123"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The user ID to list subscriptions for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"Subscription\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1975-03-24T11:37:21.952Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1949-04-17T08:24:38.128Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"object\": {\n        \"__typename\": \"Object\",\n        \"id\": \"string\",\n        \"collection\": \"string\",\n        \"updated_at\": \"1957-11-07T18:26:03.880Z\",\n        \"created_at\": \"1988-03-04T21:46:55.093Z\",\n        \"properties\": {\n          \"key_0\": false\n        }\n      },\n      \"inserted_at\": \"2021-01-01T00:00:00Z\",\n      \"updated_at\": \"2021-01-01T00:00:00Z\",\n      \"properties\": {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"__typename\": \"Subscription\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1981-03-20T19:31:37.440Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1982-10-15T02:22:30.605Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"object\": {\n        \"__typename\": \"Object\",\n        \"id\": \"string\",\n        \"collection\": \"string\",\n        \"updated_at\": \"2017-09-26T19:30:14.999Z\",\n        \"created_at\": \"2014-04-03T04:13:26.878Z\",\n        \"properties\": {\n          \"key_0\": 7607.849524687768,\n          \"key_1\": true,\n          \"key_2\": 2233,\n          \"key_3\": \"string\"\n        }\n      },\n      \"inserted_at\": \"2021-01-01T00:00:00Z\",\n      \"updated_at\": \"2021-01-01T00:00:00Z\",\n      \"properties\": {\n        \"key_0\": true\n      }\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e8b544e-d9dd-4e6a-8c1f-2fd6bdae5be5",
+          "name": "Delete user",
+          "request": {
+            "name": "Delete user",
+            "description": {
+              "content": "Permanently delete a user and all associated data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The ID of the user to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c134fcd4-27d4-4440-bb49-ceb7c569721a",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The ID of the user to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22ff58cf-0b95-4b55-b0fb-a09b4b7cb7b7",
+          "name": "Get user",
+          "request": {
+            "name": "Get user",
+            "description": {
+              "content": "Retrieve a specific user by their ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The ID of the user to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "889b49e9-f0c1-4760-a9c9-9475656c5198",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The ID of the user to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"User\",\n  \"id\": \"string\",\n  \"updated_at\": \"1960-02-05T02:20:13.705Z\",\n  \"avatar\": \"string\",\n  \"created_at\": \"1990-11-28T04:30:28.709Z\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"phone_number\": \"string\",\n  \"timezone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67ab7818-8be8-4190-b056-2f3bef602189",
+          "name": "Identify user",
+          "request": {
+            "name": "Identify user",
+            "description": {
+              "content": "Create or update a user with the provided identification data. When you identify an existing user, the system merges the properties you specific with what is currently set on the user, updating only the fields included in your requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"avatar\": \"<string>\",\n  \"channel_data\": {\n    \"key_0\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_1\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_2\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_3\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"created_at\": \"<dateTime>\",\n  \"email\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"preferences\": {\n    \"key_0\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"channel_types\": {\n        \"chat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"http\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"in_app_feed\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"push\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sms\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"channels\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"key_1\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"channel_types\": {\n        \"chat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"http\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"in_app_feed\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"push\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sms\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"channels\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"key_0\": 6135.430154040568\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82291805-6e25-4d62-8796-a52149fe8360",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_data\": {\n    \"97c5837d-c65c-4d54-aa39-080eeb81c69d\": {\n      \"tokens\": [\n        \"push_token_123\"\n      ]\n    }\n  },\n  \"email\": \"ian.malcolm@chaos.theory\",\n  \"name\": \"Dr. Ian Malcolm\",\n  \"preferences\": {\n    \"default\": {\n      \"channel_types\": {\n        \"email\": true\n      },\n      \"workflows\": {\n        \"dinosaurs-loose\": {\n          \"channel_types\": {\n            \"email\": true\n          }\n        }\n      }\n    }\n  },\n  \"timezone\": \"America/New_York\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"User\",\n  \"id\": \"string\",\n  \"updated_at\": \"1960-02-05T02:20:13.705Z\",\n  \"avatar\": \"string\",\n  \"created_at\": \"1990-11-28T04:30:28.709Z\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"phone_number\": \"string\",\n  \"timezone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe9951fc-d9ed-4b7d-9fda-83434e00ca0d",
+          "name": "Update category in user preference set",
+          "request": {
+            "name": "Update category in user preference set",
+            "description": {
+              "content": "Updates a single category in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "categories",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5fd2ebad-4f78-4929-89a1-4a0002fd5989",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "categories",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": true,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22b0ebc4-9e7d-44a9-b61e-028a706832a0",
+          "name": "Mark guide as seen",
+          "request": {
+            "name": "Mark guide as seen",
+            "description": {
+              "content": "Records that a guide has been seen by a user, triggering any associated seen events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "seen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "816988f3-c98d-4ac8-96e7-4ffe8a4c58a7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "seen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96bff933-b4e4-43fe-acc1-5adf9f7a54a5",
+          "name": "Mark guide as unarchived",
+          "request": {
+            "name": "Mark guide as unarchived",
+            "description": {
+              "content": "Records that a guide has been unarchived, triggering any associated unarchived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbe8edf4-07b7-439e-a444-ba654aa102de",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f5c4e10-16b7-4326-acdd-4aedf4de9023",
+          "name": "Mark guide as archived",
+          "request": {
+            "name": "Mark guide as archived",
+            "description": {
+              "content": "Records that a guide has been archived by a user, triggering any associated archived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aadec9c9-3e36-4208-ac7b-8c3553248f94",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b20e7696-ba70-4488-a242-2bd6d1feec54",
+          "name": "Unset channel data",
+          "request": {
+            "name": "Unset channel data",
+            "description": {
+              "content": "Deletes channel data for a specific user and channel ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d9e43d6-20f3-459c-8f22-40cd248f4b17",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcc4b215-bb99-4f76-a46d-a967795148d7",
+          "name": "Get channel data",
+          "request": {
+            "name": "Get channel data",
+            "description": {
+              "content": "Retrieves the channel data for a specific user and channel ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "662f731c-b2e1-4cc3-a5e5-a8ce4cc6a53f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"ChannelData\",\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"data\": {\n    \"devices\": [\n      {\n        \"locale\": null,\n        \"timezone\": null,\n        \"token\": \"device_1\"\n      }\n    ],\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d342d6c8-87bc-48bf-885c-b88aee2b9936",
+          "name": "Set channel data",
+          "request": {
+            "name": "Set channel data",
+            "description": {
+              "content": "Updates or creates channel data for a specific user and channel ID. If no user exists in the current environment for the given `user_id`, Knock will create the user entry as part of this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7792607b-acf2-4fbb-a7a5-8020324aa56f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channel_id\": \"dbfcd4d5-e090-2bde-80d6-0dde44d9afc6\",\n  \"data\": {\n    \"tokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"devices\": [\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      },\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      }\n    ]\n  },\n  \"__typename\": \"ChannelData\",\n  \"provider\": \"push_fcm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4a804be-ef53-4ecf-929a-65c17d4d06ae",
+          "name": "Merge users",
+          "request": {
+            "name": "Merge users",
+            "description": {
+              "content": "Merge two users together, where the user specified with the `from_user_id` param will be merged into the user specified by `user_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "merge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The id of the user to merge into."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_user_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd722e97-1c90-46a3-bb07-de094405ac7e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The id of the user to merge into."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_user_id\": \"user_1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"User\",\n  \"id\": \"string\",\n  \"updated_at\": \"1960-02-05T02:20:13.705Z\",\n  \"avatar\": \"string\",\n  \"created_at\": \"1990-11-28T04:30:28.709Z\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"phone_number\": \"string\",\n  \"timezone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d1f434b-d994-49f0-9e99-a86112ff93a7",
+          "name": "Mark guide as interacted",
+          "request": {
+            "name": "Mark guide as interacted",
+            "description": {
+              "content": "Records that a user has interacted with a guide, triggering any associated interacted events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "interacted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ca8ec26-fda3-4f65-9b04-652d1dadabc1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "interacted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a69c09ca-5161-4af1-a5bc-ab0066b9f04e",
+          "name": "Reset guide engagement",
+          "request": {
+            "name": "Reset guide engagement",
+            "description": {
+              "content": "Resets the engagement state of a guide for a user, removing the guide's engagement log entry so the next interaction creates a fresh engagement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "engagements",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f14c51b-0333-48da-8cce-c49b55ee18df",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "engagements",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "430dc9a2-45ed-45f8-9fef-26aec040be9a",
+          "name": "Bulk set preferences",
+          "request": {
+            "name": "Bulk set preferences",
+            "description": {
+              "content": "Bulk sets the preferences for up to 1,000 users at a time. The preference set `:id` can be either `default` or a `tenant.id`. Learn more about [per-tenant preferences](/preferences/tenant-preferences). Note that this is a destructive operation and will replace any existing users' preferences with the preferences sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preferences\": {\n    \"__persistence_strategy__\": \"<string>\",\n    \"categories\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\"\n    },\n    \"channel_types\": {\n      \"chat\": \"<boolean>\",\n      \"email\": \"<boolean>\",\n      \"http\": \"<boolean>\",\n      \"in_app_feed\": \"<boolean>\",\n      \"push\": \"<boolean>\",\n      \"sms\": \"<boolean>\"\n    },\n    \"channels\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\",\n      \"key_2\": \"<boolean>\",\n      \"key_3\": \"<boolean>\"\n    },\n    \"commercial_subscribed\": \"<boolean>\",\n    \"workflows\": {\n      \"key_0\": \"<boolean>\"\n    }\n  },\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27ceec81-8451-4046-a873-7caf5f88f032",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"__persistence_strategy__\": \"merge\",\n    \"categories\": {\n      \"marketing\": false,\n      \"transactional\": {\n        \"channel_types\": {\n          \"email\": false\n        }\n      }\n    },\n    \"channel_types\": {\n      \"email\": true\n    },\n    \"channels\": {\n      \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n        \"conditions\": [\n          {\n            \"argument\": \"US\",\n            \"operator\": \"equal_to\",\n            \"variable\": \"recipient.country_code\"\n          }\n        ]\n      },\n      \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"dinosaurs-loose\": {\n        \"channel_types\": {\n          \"email\": false\n        }\n      }\n    }\n  },\n  \"user_ids\": [\n    \"user_1\",\n    \"user_2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"b4cd3845-db94-2cae-ceb2-91188542d3ba\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1963-07-20T20:02:44.094Z\",\n  \"inserted_at\": \"1959-12-18T15:06:00.746Z\",\n  \"completed_at\": \"2002-12-16T18:40:22.992Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2019-11-23T17:58:04.779Z\",\n  \"progress_path\": \"https://x.yoqqzOXg-RKZLIOfbBeRcknSkuCiHc.HnpO02Hbu7aERDSjVbjm7IR-OXM+kHWE3Pw7TBflE3\",\n  \"started_at\": \"2014-04-01T09:21:44.079Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04be47f1-193b-4ec5-9095-5ca383695a3d",
+          "name": "List guides",
+          "request": {
+            "name": "List guides",
+            "description": {
+              "content": "Returns a list of eligible in-app guides for a specific user and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The tenant ID to use for targeting and rendering guides."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "The data (JSON encoded object) to use for targeting and rendering guides."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of guides to filter by."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91645c70-a79e-487e-9b89-d648b193e3b7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "data",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"string\",\n      \"activation_url_patterns\": [\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        },\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        }\n      ],\n      \"activation_url_rules\": [\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        },\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        }\n      ],\n      \"active\": true,\n      \"bypass_global_group_limit\": false,\n      \"channel_id\": \"9b7f352c-6369-dddf-72f8-e0ea610c38c9\",\n      \"dashboard_url\": \"string\",\n      \"id\": \"ac3f8751-344b-627c-f7a0-f8ab26921c0b\",\n      \"inserted_at\": \"1959-01-24T02:48:23.865Z\",\n      \"key\": \"string\",\n      \"semver\": \"string\",\n      \"steps\": [\n        {\n          \"content\": {\n            \"key_0\": 1560,\n            \"key_1\": \"string\"\n          },\n          \"message\": {\n            \"archived_at\": \"1990-08-21T14:15:23.132Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"2006-11-28T23:16:21.190Z\",\n            \"link_clicked_at\": \"1967-08-01T03:35:29.256Z\",\n            \"read_at\": \"2007-03-07T10:00:55.845Z\",\n            \"seen_at\": \"1997-09-24T06:23:44.388Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        },\n        {\n          \"content\": {\n            \"key_0\": false\n          },\n          \"message\": {\n            \"archived_at\": \"1948-08-27T20:08:55.716Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1981-11-17T13:32:52.362Z\",\n            \"link_clicked_at\": \"2010-10-10T09:59:39.566Z\",\n            \"read_at\": \"1975-12-17T12:47:40.688Z\",\n            \"seen_at\": \"1956-12-08T06:41:04.770Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"updated_at\": \"2000-07-11T01:58:20.061Z\"\n    },\n    {\n      \"__typename\": \"string\",\n      \"activation_url_patterns\": [\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        },\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        }\n      ],\n      \"activation_url_rules\": [\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        },\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        }\n      ],\n      \"active\": false,\n      \"bypass_global_group_limit\": false,\n      \"channel_id\": \"07c5f36e-6d95-73a2-1f47-304b8148041c\",\n      \"dashboard_url\": \"string\",\n      \"id\": \"267fb9c5-9c1e-559d-bc78-d10296201172\",\n      \"inserted_at\": \"1979-03-15T01:04:13.954Z\",\n      \"key\": \"string\",\n      \"semver\": \"string\",\n      \"steps\": [\n        {\n          \"content\": {\n            \"key_0\": \"string\",\n            \"key_1\": 8880.277593102706\n          },\n          \"message\": {\n            \"archived_at\": \"1978-01-06T10:47:16.207Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1997-12-26T19:04:17.490Z\",\n            \"link_clicked_at\": \"1962-07-15T00:51:57.795Z\",\n            \"read_at\": \"1978-12-25T04:35:18.788Z\",\n            \"seen_at\": \"1982-05-22T00:01:32.153Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        },\n        {\n          \"content\": {\n            \"key_0\": false,\n            \"key_1\": 4031\n          },\n          \"message\": {\n            \"archived_at\": \"2020-07-26T15:59:05.638Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1960-08-25T03:42:02.930Z\",\n            \"link_clicked_at\": \"2003-11-06T13:02:39.477Z\",\n            \"read_at\": \"1959-06-25T22:35:28.244Z\",\n            \"seen_at\": \"1959-06-15T08:41:38.086Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"updated_at\": \"1980-07-16T10:44:12.372Z\"\n    }\n  ],\n  \"guide_groups\": [\n    {\n      \"__typename\": \"string\",\n      \"display_interval\": 2447,\n      \"display_sequence\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inserted_at\": \"1984-01-01T19:41:15.835Z\",\n      \"key\": \"string\",\n      \"updated_at\": \"2014-06-28T12:08:54.406Z\"\n    },\n    {\n      \"__typename\": \"string\",\n      \"display_interval\": 8272,\n      \"display_sequence\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inserted_at\": \"1961-11-08T08:40:20.157Z\",\n      \"key\": \"string\",\n      \"updated_at\": \"1953-03-19T05:07:09.943Z\"\n    }\n  ],\n  \"guide_group_display_logs\": {\n    \"key_0\": \"1952-03-31T03:01:28.844Z\",\n    \"key_1\": \"2007-09-18T01:33:51.281Z\"\n  },\n  \"ineligible_guides\": [\n    {\n      \"key\": \"string\",\n      \"reason\": \"target_conditions_not_met\",\n      \"message\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"reason\": \"not_in_target_audience\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adbdc682-0452-4142-b72f-8dcab0a47738",
+          "name": "Bulk identify users",
+          "request": {
+            "name": "Bulk identify users",
+            "description": {
+              "content": "Identifies multiple users in a single operation. Allows creating or updating up to 1,000 users in a single batch with various properties, preferences, and channel data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "identify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"users\": [\n    {\n      \"id\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"email\": \"<string>\",\n      \"locale\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"timezone\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"email\": \"<string>\",\n      \"locale\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"timezone\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5aaf887c-8811-46fc-8b2c-2a041aa79301",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "identify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"users\": [\n    {\n      \"email\": \"jane@ingen.net\",\n      \"id\": \"user_1\",\n      \"name\": \"Jane Doe\",\n      \"timezone\": \"America/New_York\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"f11401ec-4174-b9df-9024-84b50df04eef\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2005-12-14T05:58:02.071Z\",\n  \"inserted_at\": \"1963-05-19T15:40:57.237Z\",\n  \"completed_at\": \"1992-09-17T01:13:57.338Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1954-12-09T03:45:41.399Z\",\n  \"progress_path\": \"https://LeoFVVoOEk.gnoF02C3wyybqho-oJFzuTHYKoTghHYPz2A+QeWJS69ddPeb\",\n  \"started_at\": \"1991-04-16T16:14:43.932Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c711b70c-6f6c-49b5-af4d-94837caa3d87",
+          "name": "Update workflows in preference set",
+          "request": {
+            "name": "Update workflows in preference set",
+            "description": {
+              "content": "Updates the workflows in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a54c922d-0797-4b3f-b9cc-2cae842b8d23",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfa714c6-88e9-4f0f-b067-738f6acc8080",
+          "name": "Update categories in user preference set",
+          "request": {
+            "name": "Update categories in user preference set",
+            "description": {
+              "content": "Updates the categories in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5af0dd8e-a9e4-494f-8f64-fe84e64eb6df",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7211752f-4813-4497-a75d-696687914f5e",
+          "name": "Mark guide as interacted",
+          "request": {
+            "name": "Mark guide as interacted",
+            "description": {
+              "content": "Records that a user has interacted with a guide, triggering any associated interacted events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "interacted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7f8780a-242a-4851-8d0d-1d80201f5249",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "interacted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74d1fa76-8e6a-4ad1-81e1-ab6b0036fe0f",
+          "name": "Bulk delete users",
+          "request": {
+            "name": "Bulk delete users",
+            "description": {
+              "content": "Permanently deletes up to 1,000 users at a time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7cab576-9530-43b5-8554-e7438893bd4b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_ids\": [\n    \"user_1\",\n    \"user_2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"f11401ec-4174-b9df-9024-84b50df04eef\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2005-12-14T05:58:02.071Z\",\n  \"inserted_at\": \"1963-05-19T15:40:57.237Z\",\n  \"completed_at\": \"1992-09-17T01:13:57.338Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1954-12-09T03:45:41.399Z\",\n  \"progress_path\": \"https://LeoFVVoOEk.gnoF02C3wyybqho-oJFzuTHYKoTghHYPz2A+QeWJS69ddPeb\",\n  \"started_at\": \"1991-04-16T16:14:43.932Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b5e43db-d9fb-417d-b5d2-6fcd1689b6b9",
+          "name": "Update channel type in preference set",
+          "request": {
+            "name": "Update channel type in preference set",
+            "description": {
+              "content": "Updates a single channel type in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "channel_types",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fdddefa-ac64-4f3a-9a5a-a0639fb43edb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "channel_types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e68b3b7-7b2c-4686-bf6d-2da7327af420",
+          "name": "List user preference sets",
+          "request": {
+            "name": "List user preference sets",
+            "description": {
+              "content": "Retrieves a list of all preference sets for a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f72a9c25-c682-427d-a3c3-2a31d7404f4f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false\n    },\n    \"channel_types\": {\n      \"chat\": \"<boolean>\",\n      \"email\": \"<boolean>\",\n      \"http\": \"<boolean>\",\n      \"in_app_feed\": \"<boolean>\",\n      \"push\": \"<boolean>\",\n      \"sms\": \"<boolean>\"\n    },\n    \"channels\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\",\n      \"key_2\": \"<boolean>\"\n    },\n    \"commercial_subscribed\": false,\n    \"workflows\": {\n      \"key_0\": false,\n      \"key_1\": false\n    }\n  },\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false\n    },\n    \"channel_types\": {\n      \"chat\": \"<boolean>\",\n      \"email\": \"<boolean>\",\n      \"http\": \"<boolean>\",\n      \"in_app_feed\": \"<boolean>\",\n      \"push\": \"<boolean>\",\n      \"sms\": \"<boolean>\"\n    },\n    \"channels\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\"\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"key_0\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d7d56d8-1294-4e1c-b76a-3c27f39b2f2c",
+          "name": "List user schedules",
+          "request": {
+            "name": "List user schedules",
+            "description": {
+              "content": "Returns a paginated list of schedules for a specific user, in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workflow",
+                  "value": "<string>",
+                  "description": "The workflow key to filter schedules for."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The tenant ID to filter schedules for."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The user ID to list schedules for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e2cf82b-ccfe-451a-bc7d-4a18ed2ea266",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workflow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The user ID to list schedules for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"id\": \"d847b826-fdf1-7cc5-a367-89532a7602a9\",\n      \"workflow\": \"string\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1959-12-09T16:48:41.995Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"2008-04-22T23:27:17.010Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"repeats\": [\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        },\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        }\n      ],\n      \"inserted_at\": \"2000-07-10T07:40:06.524Z\",\n      \"updated_at\": \"1960-04-17T05:17:13.169Z\",\n      \"__typename\": \"Schedule\",\n      \"actor\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1979-11-08T07:14:58.515Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"2019-08-19T23:44:20.263Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": \"string\"\n      },\n      \"last_occurrence_at\": \"1967-01-12T10:15:58.145Z\",\n      \"next_occurrence_at\": \"2001-08-13T20:29:48.428Z\",\n      \"tenant\": \"string\"\n    },\n    {\n      \"id\": \"decd1452-c8d7-0604-0259-546ba06b40ce\",\n      \"workflow\": \"string\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"2005-06-29T20:09:28.567Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"2001-05-23T23:46:43.914Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"repeats\": [\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        },\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        }\n      ],\n      \"inserted_at\": \"1962-01-16T08:55:27.137Z\",\n      \"updated_at\": \"1968-09-27T15:25:31.395Z\",\n      \"__typename\": \"Schedule\",\n      \"actor\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1977-11-24T17:12:12.331Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1953-04-25T06:53:37.078Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": true,\n        \"key_2\": 6440\n      },\n      \"last_occurrence_at\": \"1984-03-13T00:17:55.515Z\",\n      \"next_occurrence_at\": \"1976-08-09T10:41:18.854Z\",\n      \"tenant\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a037843-7e58-4281-a2c7-7eae8c2ca8bf",
+          "name": "Mark guide as archived",
+          "request": {
+            "name": "Mark guide as archived",
+            "description": {
+              "content": "Records that a guide has been archived by a user, triggering any associated archived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8036,\n    \"key_2\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5396\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91822acc-b30c-4879-806c-642b9a4cf29f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83126f3a-5f1f-4177-ac58-5d7542dd692b",
+          "name": "List user messages",
+          "request": {
+            "name": "List user messages",
+            "description": {
+              "content": "Returns a paginated list of messages for a specific user. Messages are sorted with the most recent ones appearing first. Messages outside the account's retention window will not be included in the results.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "Limits the results to items with the corresponding tenant."
+                },
+                {
+                  "disabled": false,
+                  "key": "channel_id",
+                  "value": "<string>",
+                  "description": "Limits the results to items with the corresponding channel ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given delivery status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given delivery status."
+                },
+                {
+                  "disabled": false,
+                  "key": "engagement_status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given engagement status."
+                },
+                {
+                  "disabled": false,
+                  "key": "engagement_status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given engagement status."
+                },
+                {
+                  "disabled": false,
+                  "key": "message_ids[]",
+                  "value": "<string>",
+                  "description": "Limits the results to only the message IDs given (max 50). Note: when using this option, the results will be subject to any other filters applied to the query."
+                },
+                {
+                  "disabled": false,
+                  "key": "message_ids[]",
+                  "value": "<string>",
+                  "description": "Limits the results to only the message IDs given (max 50). Note: when using this option, the results will be subject to any other filters applied to the query."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages related to any of the provided categories."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages related to any of the provided categories."
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "Limits the results to messages triggered by the given workflow key."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_run_id",
+                  "value": "<uuid>",
+                  "description": "Limits the results to messages associated with the top-level workflow run ID returned by the workflow trigger request."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_recipient_run_id",
+                  "value": "<uuid>",
+                  "description": "Limits the results to messages for a specific recipient's workflow run."
+                },
+                {
+                  "disabled": false,
+                  "key": "trigger_data",
+                  "value": "<string>",
+                  "description": "Limits the results to only messages that were generated with the given data. See [trigger data filtering](/api-reference/overview/trigger-data-filtering) for more information."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after or on the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before or on the given date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The user ID to list messages for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da30d9ce-0ecf-48ef-a97f-d0d69c8182dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "tenant_123"
+                    },
+                    {
+                      "key": "channel_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "delivered"
+                    },
+                    {
+                      "key": "engagement_status[]",
+                      "value": "unread"
+                    },
+                    {
+                      "key": "message_ids[]",
+                      "value": "1jNaXzB2RZX3LY8wVQnfCKyPnv7"
+                    },
+                    {
+                      "key": "workflow_categories[]",
+                      "value": "workflow_123"
+                    },
+                    {
+                      "key": "source",
+                      "value": "comment-created"
+                    },
+                    {
+                      "key": "workflow_run_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "workflow_recipient_run_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "trigger_data",
+                      "value": "{\"comment_id\": \"123\"}"
+                    },
+                    {
+                      "key": "inserted_at.gt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.gte",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lte",
+                      "value": "2025-01-01T00:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The user ID to list messages for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"__typename\": \"Message\",\n      \"id\": \"string\",\n      \"channel_id\": \"f6edada1-7c86-2ef3-6420-7a7376da9d91\",\n      \"status\": \"sent\",\n      \"inserted_at\": \"1962-10-24T02:14:10.683Z\",\n      \"updated_at\": \"1968-08-01T07:55:20.570Z\",\n      \"recipient\": \"user_123\",\n      \"engagement_statuses\": [\n        \"read\",\n        \"seen\"\n      ],\n      \"source\": {\n        \"__typename\": \"NotificationSource\",\n        \"categories\": [\n          \"collaboration\"\n        ],\n        \"key\": \"comment-created\",\n        \"step_ref\": \"email_step_1\",\n        \"version_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"workflow_recipient_run_id\": \"456e7890-a12b-34c5-d678-456789012345\",\n        \"workflow_run_id\": \"987e6543-e21c-34b5-c678-987654321000\"\n      },\n      \"actors\": [\n        \"user_123\",\n        \"user_123\"\n      ],\n      \"archived_at\": \"1964-03-18T00:26:00.825Z\",\n      \"channel\": {\n        \"id\": \"string\",\n        \"type\": \"in_app_feed\",\n        \"provider\": \"string\",\n        \"created_at\": \"1973-12-04T17:39:58.824Z\",\n        \"updated_at\": \"2011-07-23T23:44:38.499Z\",\n        \"key\": \"string\",\n        \"name\": \"string\"\n      },\n      \"clicked_at\": \"2000-08-03T16:32:41.448Z\",\n      \"data\": {\n        \"key_0\": \"string\"\n      },\n      \"interacted_at\": \"2009-02-18T21:31:59.834Z\",\n      \"link_clicked_at\": \"1971-08-29T07:51:09.231Z\",\n      \"metadata\": {\n        \"external_id\": \"123e4567-e89b-12d3-a456-426614174000\"\n      },\n      \"read_at\": \"1974-02-15T14:06:33.161Z\",\n      \"scheduled_at\": \"1960-12-15T07:50:03.771Z\",\n      \"seen_at\": \"1974-07-21T09:46:30.571Z\",\n      \"tenant\": \"string\",\n      \"workflow\": \"string\"\n    },\n    {\n      \"__typename\": \"Message\",\n      \"id\": \"string\",\n      \"channel_id\": \"16177aaa-1061-779c-17b8-d47be1ce0766\",\n      \"status\": \"sent\",\n      \"inserted_at\": \"2012-01-21T02:37:48.768Z\",\n      \"updated_at\": \"1991-02-27T20:18:24.245Z\",\n      \"recipient\": \"user_123\",\n      \"engagement_statuses\": [\n        \"read\",\n        \"seen\"\n      ],\n      \"source\": {\n        \"__typename\": \"NotificationSource\",\n        \"categories\": [\n          \"collaboration\"\n        ],\n        \"key\": \"comment-created\",\n        \"step_ref\": \"email_step_1\",\n        \"version_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"workflow_recipient_run_id\": \"456e7890-a12b-34c5-d678-456789012345\",\n        \"workflow_run_id\": \"987e6543-e21c-34b5-c678-987654321000\"\n      },\n      \"actors\": [\n        \"user_123\",\n        \"user_123\"\n      ],\n      \"archived_at\": \"2003-05-11T08:04:15.474Z\",\n      \"channel\": {\n        \"id\": \"string\",\n        \"type\": \"push\",\n        \"provider\": \"string\",\n        \"created_at\": \"2019-11-28T04:53:24.977Z\",\n        \"updated_at\": \"1968-11-09T23:34:33.135Z\",\n        \"key\": \"string\",\n        \"name\": \"string\"\n      },\n      \"clicked_at\": \"2013-06-30T16:24:58.927Z\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 4662.024527630517\n      },\n      \"interacted_at\": \"1956-08-03T23:02:51.504Z\",\n      \"link_clicked_at\": \"1952-03-07T18:49:14.969Z\",\n      \"metadata\": {\n        \"external_id\": \"123e4567-e89b-12d3-a456-426614174000\"\n      },\n      \"read_at\": \"1972-04-22T13:44:52.731Z\",\n      \"scheduled_at\": \"1972-11-11T03:48:35.542Z\",\n      \"seen_at\": \"2013-01-06T08:05:07.365Z\",\n      \"tenant\": \"string\",\n      \"workflow\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "322152aa-ea8b-499a-be2f-5671e975a95f",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "Retrieve a paginated list of users in the environment. Defaults to 50 users per page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Associated resources to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Associated resources to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f81b882d-c836-476a-94a2-0a71489b4dd9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"1990-04-24T16:06:04.767Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"2003-12-08T23:33:27.959Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"1981-08-28T04:05:50.255Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"2007-02-15T14:14:59.942Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2ff6469-fb50-4b64-a8bc-f270421dea43",
+          "name": "Update workflow in user preference set",
+          "request": {
+            "name": "Update workflow in user preference set",
+            "description": {
+              "content": "Updates a single workflow in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "workflows",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec5b860a-974f-4a35-a126-e6a4f85b5c4c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "workflows",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aef8ddbe-f616-42fe-8013-6ccd02f8f9cc",
+          "name": "Delete user preference set",
+          "request": {
+            "name": "Delete user preference set",
+            "description": {
+              "content": "Unsets the preference set for the user, removing it entirely.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1515a643-465c-49c2-b671-d43279a54c25",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d249343-8996-4be9-b7a0-32bd1f25911c",
+          "name": "Get user preference set",
+          "request": {
+            "name": "Get user preference set",
+            "description": {
+              "content": "Retrieves a specific preference set for a user identified by the preference set ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The unique identifier for the tenant."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f69d2c0-5835-4935-98f8-5835ee7c9bed",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28969646-4a25-4a43-b8ad-65152aafdc65",
+          "name": "Update user preference set",
+          "request": {
+            "name": "Update user preference set",
+            "description": {
+              "content": "Updates a complete preference set for a user. By default, this is a destructive operation and will replace any existing preferences with the preferences given. Use '__persistence_strategy__': 'merge' to merge with existing preferences instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__persistence_strategy__\": \"<string>\",\n  \"categories\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": \"<boolean>\",\n  \"workflows\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d232fcda-6739-4d15-8934-ff070b9b9671",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__persistence_strategy__\": \"merge\",\n  \"categories\": {\n    \"marketing\": false,\n    \"transactional\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  },\n  \"channel_types\": {\n    \"email\": true\n  },\n  \"channels\": {\n    \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n      \"conditions\": [\n        {\n          \"argument\": \"US\",\n          \"operator\": \"equal_to\",\n          \"variable\": \"recipient.country_code\"\n        }\n      ]\n    },\n    \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"dinosaurs-loose\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cc9483e-57aa-4e85-aef6-ff5db10c1f8a",
+          "name": "Update channel types in preference set",
+          "request": {
+            "name": "Update channel types in preference set",
+            "description": {
+              "content": "Updates the channel types in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "channel_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be32881f-6f02-4dce-95d0-fba5553f9269",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "channel_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "38d8bd93-992a-404a-bac1-2681ecb134b6",
+    "name": "Knock Audiences Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

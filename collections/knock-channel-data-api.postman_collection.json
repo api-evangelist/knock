@@ -1,0 +1,807 @@
+{
+  "item": [
+    {
+      "id": "38a62250-4bf6-4618-ae40-0c35e708b2db",
+      "name": "Channel data",
+      "description": {
+        "content": "Channel data is data that is specific to a recipient and a channel, like push tokens, or one or more Slack connections.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7df69262-5ab1-4594-8055-af42be3ae621",
+          "name": "Unset channel data",
+          "request": {
+            "name": "Unset channel data",
+            "description": {
+              "content": "Deletes channel data for a specific user and channel ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f458fb0b-b11d-4c67-82fc-55bdd62fdf33",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3602f7a9-47ae-4fc7-96a2-6223227fe796",
+          "name": "Get channel data",
+          "request": {
+            "name": "Get channel data",
+            "description": {
+              "content": "Retrieves the channel data for a specific user and channel ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13dbbecb-0848-4e66-a927-5281abf321d6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"ChannelData\",\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"data\": {\n    \"devices\": [\n      {\n        \"locale\": null,\n        \"timezone\": null,\n        \"token\": \"device_1\"\n      }\n    ],\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70e5bdc4-f026-4c00-a009-3d0a4521e1aa",
+          "name": "Set channel data",
+          "request": {
+            "name": "Set channel data",
+            "description": {
+              "content": "Updates or creates channel data for a specific user and channel ID. If no user exists in the current environment for the given `user_id`, Knock will create the user entry as part of this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1ca3174-7ff3-4ed6-b7aa-0332b7eb0cb5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channel_id\": \"4935bbc7-fd49-ef24-a6f1-f18aced844ca\",\n  \"data\": {\n    \"tokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"devices\": [\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      },\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      }\n    ]\n  },\n  \"__typename\": \"ChannelData\",\n  \"provider\": \"push_fcm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c9fa9e2-24a0-463c-8e13-f5280904a3f4",
+          "name": "Unset channel data",
+          "request": {
+            "name": "Unset channel data",
+            "description": {
+              "content": "Unsets the channel data for the specified object and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "517853b2-8fa6-4dc0-a34a-69eccd627a00",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c1a7e46-4d01-474b-88d7-f2e41eae7edd",
+          "name": "Get channel data",
+          "request": {
+            "name": "Get channel data",
+            "description": {
+              "content": "Returns the channel data for the specified object and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f8c5e52-65b5-4330-8d76-6c27a17deb19",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channel_id\": \"4935bbc7-fd49-ef24-a6f1-f18aced844ca\",\n  \"data\": {\n    \"tokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"devices\": [\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      },\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      }\n    ]\n  },\n  \"__typename\": \"ChannelData\",\n  \"provider\": \"push_fcm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e21566ee-f764-4a63-bc27-0fcd628407c2",
+          "name": "Set channel data",
+          "request": {
+            "name": "Set channel data",
+            "description": {
+              "content": "Sets the channel data for the specified object and channel. If no object exists in the current environment for the given `collection` and `object_id`, Knock will create the object as part of this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c9e9c50-fa72-4c55-876b-263a4a1e1e0d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channel_id\": \"4935bbc7-fd49-ef24-a6f1-f18aced844ca\",\n  \"data\": {\n    \"tokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"devices\": [\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      },\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      }\n    ]\n  },\n  \"__typename\": \"ChannelData\",\n  \"provider\": \"push_fcm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f93167d-01ca-4413-bad6-0a0bcd76584e",
+    "name": "Knock Audiences Channel data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

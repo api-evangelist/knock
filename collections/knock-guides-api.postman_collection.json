@@ -1,0 +1,1195 @@
+{
+  "item": [
+    {
+      "id": "7ce7740f-cbd2-44f4-8aa7-2a84cb7b7744",
+      "name": "Guides",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1a6f6827-3381-492f-b804-cc4756411301",
+          "name": "Mark guide as seen",
+          "request": {
+            "name": "Mark guide as seen",
+            "description": {
+              "content": "Records that a guide has been seen by a user, triggering any associated seen events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "seen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd804da7-2e0e-4769-9156-0c1c519cf0a4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "seen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5206e54-ea34-4019-b94a-03fd50da9b80",
+          "name": "Mark guide as seen",
+          "request": {
+            "name": "Mark guide as seen",
+            "description": {
+              "content": "Records that a guide has been seen by a user, triggering any associated seen events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "seen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b83aa3bd-8290-4323-a6d7-217d98bb8294",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "seen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e73d1b3e-a4b5-441a-ac4f-aab9133ee819",
+          "name": "Mark guide as unarchived",
+          "request": {
+            "name": "Mark guide as unarchived",
+            "description": {
+              "content": "Records that a guide has been unarchived, triggering any associated unarchived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a29df46-fd5f-48fd-9cfb-857a458f9a7a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "370b6339-15fc-44f5-9f87-e49113adf776",
+          "name": "Mark guide as archived",
+          "request": {
+            "name": "Mark guide as archived",
+            "description": {
+              "content": "Records that a guide has been archived by a user, triggering any associated archived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66db7f85-0888-4dcb-886d-cd3c7bb61d76",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57c2ef38-b42d-4cb9-9cf3-3988b0c0e5ab",
+          "name": "Mark guide as interacted",
+          "request": {
+            "name": "Mark guide as interacted",
+            "description": {
+              "content": "Records that a user has interacted with a guide, triggering any associated interacted events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                "interacted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dfa922d9-8b99-49d8-9df9-6d97240eca7a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    "interacted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81af8992-a095-4d66-9059-fe4a19526527",
+          "name": "Reset guide engagement",
+          "request": {
+            "name": "Reset guide engagement",
+            "description": {
+              "content": "Resets the engagement state of a guide for a user, removing the guide's engagement log entry so the next interaction creates a fresh engagement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "engagements",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e109d36c-e131-4e96-940b-336f1409f4c6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "engagements",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a02dec7-eb4b-4d44-b22f-be73fd470ab7",
+          "name": "List guides",
+          "request": {
+            "name": "List guides",
+            "description": {
+              "content": "Returns a list of eligible in-app guides for a specific user and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The tenant ID to use for targeting and rendering guides."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "The data (JSON encoded object) to use for targeting and rendering guides."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of guides to filter by."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "797f1f1d-aed8-4a5f-9c94-16ffe16e5722",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "data",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"string\",\n      \"activation_url_patterns\": [\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        },\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        }\n      ],\n      \"activation_url_rules\": [\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        },\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        }\n      ],\n      \"active\": false,\n      \"bypass_global_group_limit\": false,\n      \"channel_id\": \"f0e0a820-7cca-f718-582e-1fad938a5c0c\",\n      \"dashboard_url\": \"string\",\n      \"id\": \"bde3d66f-2046-a2da-3c4f-58a673037026\",\n      \"inserted_at\": \"2013-11-04T16:22:41.612Z\",\n      \"key\": \"string\",\n      \"semver\": \"string\",\n      \"steps\": [\n        {\n          \"content\": {\n            \"key_0\": 7603.040196286832,\n            \"key_1\": false,\n            \"key_2\": false\n          },\n          \"message\": {\n            \"archived_at\": \"1992-06-06T20:50:43.114Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1948-07-07T01:01:20.022Z\",\n            \"link_clicked_at\": \"1979-10-25T08:20:18.717Z\",\n            \"read_at\": \"1959-09-18T17:51:06.883Z\",\n            \"seen_at\": \"1954-10-11T23:41:57.230Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        },\n        {\n          \"content\": {\n            \"key_0\": 2562.0384470229565,\n            \"key_1\": \"string\"\n          },\n          \"message\": {\n            \"archived_at\": \"2014-02-27T12:01:43.732Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1983-01-01T09:34:45.133Z\",\n            \"link_clicked_at\": \"1966-01-26T13:52:53.155Z\",\n            \"read_at\": \"2010-05-15T00:16:34.796Z\",\n            \"seen_at\": \"2016-04-10T06:35:12.472Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"updated_at\": \"2003-01-12T01:02:44.099Z\"\n    },\n    {\n      \"__typename\": \"string\",\n      \"activation_url_patterns\": [\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        },\n        {\n          \"directive\": \"string\",\n          \"pathname\": \"string\",\n          \"search\": \"string\"\n        }\n      ],\n      \"activation_url_rules\": [\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        },\n        {\n          \"argument\": \"string\",\n          \"directive\": \"string\",\n          \"operator\": \"string\",\n          \"variable\": \"string\"\n        }\n      ],\n      \"active\": true,\n      \"bypass_global_group_limit\": false,\n      \"channel_id\": \"a396d900-06eb-f60d-d6e2-2233a62393e0\",\n      \"dashboard_url\": \"string\",\n      \"id\": \"77775dd8-5aef-16eb-8691-a837bdd20720\",\n      \"inserted_at\": \"1979-03-29T15:52:48.518Z\",\n      \"key\": \"string\",\n      \"semver\": \"string\",\n      \"steps\": [\n        {\n          \"content\": {\n            \"key_0\": false,\n            \"key_1\": false,\n            \"key_2\": 8448,\n            \"key_3\": 7142\n          },\n          \"message\": {\n            \"archived_at\": \"1958-04-25T14:58:45.580Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"1956-03-07T03:37:29.870Z\",\n            \"link_clicked_at\": \"1961-03-14T05:06:16.204Z\",\n            \"read_at\": \"2001-08-08T16:47:35.377Z\",\n            \"seen_at\": \"1983-04-26T07:44:12.597Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        },\n        {\n          \"content\": {\n            \"key_0\": 3770\n          },\n          \"message\": {\n            \"archived_at\": \"1984-06-25T13:13:33.604Z\",\n            \"id\": \"string\",\n            \"interacted_at\": \"2000-11-15T17:39:23.194Z\",\n            \"link_clicked_at\": \"1992-12-22T04:39:52.462Z\",\n            \"read_at\": \"2020-08-22T05:36:40.943Z\",\n            \"seen_at\": \"1968-02-09T16:36:51.060Z\"\n          },\n          \"ref\": \"string\",\n          \"schema_key\": \"string\",\n          \"schema_semver\": \"string\",\n          \"schema_variant_key\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"updated_at\": \"1965-04-09T07:51:55.098Z\"\n    }\n  ],\n  \"guide_groups\": [\n    {\n      \"__typename\": \"string\",\n      \"display_interval\": 5747,\n      \"display_sequence\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inserted_at\": \"2004-10-01T09:41:54.869Z\",\n      \"key\": \"string\",\n      \"updated_at\": \"1996-07-07T21:25:10.171Z\"\n    },\n    {\n      \"__typename\": \"string\",\n      \"display_interval\": 3290,\n      \"display_sequence\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inserted_at\": \"2007-09-15T13:46:07.615Z\",\n      \"key\": \"string\",\n      \"updated_at\": \"1988-03-03T01:14:55.724Z\"\n    }\n  ],\n  \"guide_group_display_logs\": {\n    \"key_0\": \"1954-03-13T15:45:17.737Z\",\n    \"key_1\": \"2026-03-23T06:18:50.675Z\",\n    \"key_2\": \"1965-09-26T04:16:35.933Z\"\n  },\n  \"ineligible_guides\": [\n    {\n      \"key\": \"string\",\n      \"reason\": \"not_in_target_audience\",\n      \"message\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"reason\": \"target_conditions_not_met\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85ff6adb-afec-402e-a293-4788d71142bb",
+          "name": "Mark guide as interacted",
+          "request": {
+            "name": "Mark guide as interacted",
+            "description": {
+              "content": "Records that a user has interacted with a guide, triggering any associated interacted events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "interacted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39f6c792-20a4-4152-98e0-2937283f4d9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "interacted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d62c61a-181c-408e-8d90-a6052b27e4ab",
+          "name": "Mark guide as archived",
+          "request": {
+            "name": "Mark guide as archived",
+            "description": {
+              "content": "Records that a guide has been archived by a user, triggering any associated archived events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "guides",
+                "messages",
+                ":message_id",
+                "archived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<uuid>\",\n  \"guide_id\": \"<uuid>\",\n  \"guide_key\": \"<string>\",\n  \"guide_step_ref\": \"<string>\",\n  \"content\": {\n    \"key_0\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": 9805.035088608061,\n    \"key_1\": 7356.644741770545,\n    \"key_2\": 377.95050425650567,\n    \"key_3\": true\n  },\n  \"is_final\": \"<boolean>\",\n  \"metadata\": {\n    \"key_0\": 2342.8832023992486,\n    \"key_1\": 9341\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bce7592e-6638-4e08-817d-1aef01c53320",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "guides",
+                    "messages",
+                    ":message_id",
+                    "archived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"content\": {\n    \"body\": \"Limited spots available for today's behind-the-scenes DNA extraction demonstration.\",\n    \"title\": \"DNA Lab Tour Available\"\n  },\n  \"data\": {\n    \"next_time\": \"14:30\",\n    \"spots_left\": 8,\n    \"tour_id\": \"dna_lab_tour\"\n  },\n  \"guide_id\": \"7e9dc78c-b3b1-4127-a54e-71f1899b831a\",\n  \"guide_key\": \"tour_notification\",\n  \"guide_step_ref\": \"lab_tours\",\n  \"is_final\": false,\n  \"metadata\": {\n    \"cta\": \"Reserve Spot\",\n    \"theme\": \"amber\",\n    \"type\": \"banner\"\n  },\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fbdeb69d-9805-442f-bd32-2ed3f17613da",
+    "name": "Knock Audiences Guides API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

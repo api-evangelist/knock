@@ -1,0 +1,1405 @@
+{
+  "item": [
+    {
+      "id": "46663b33-032e-439d-8ffc-4e5b9a9fe7b8",
+      "name": "Bulk operations",
+      "description": {
+        "content": "A bulk operation is a set of changes applied across zero or more records triggered via a call to the Knock API and performed asynchronously.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c8a85f2-b16c-406c-a4e4-48ca1b7f3bd6",
+          "name": "Get bulk operation",
+          "request": {
+            "name": "Get bulk operation",
+            "description": {
+              "content": "Retrieves a bulk operation (if it exists) and displays the current state of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "bulk_operations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The ID of the bulk operation to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a8e7eac-930e-41d5-934f-2762a68fffd2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "bulk_operations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The ID of the bulk operation to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"2e2cbea0-e4ad-52d4-a134-fac37b971fcc\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2020-03-12T10:53:38.548Z\",\n  \"inserted_at\": \"2008-12-20T07:02:05.057Z\",\n  \"completed_at\": \"1950-05-14T05:14:56.127Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1997-12-20T02:24:56.194Z\",\n  \"progress_path\": \"http://xdKzWZislLybPKUJdu.wdlO05fTBbmMa1REZAoa4pNrcCVC\",\n  \"started_at\": \"2011-01-15T01:08:47.971Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdcec788-57e3-44d5-81f0-790136be386a",
+          "name": "Bulk delete objects",
+          "request": {
+            "name": "Bulk delete objects",
+            "description": {
+              "content": "Bulk deletes objects from the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"object_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15dcd14a-acfd-472f-9d6b-01ad985eec9a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"object_ids\": [\n    \"obj_123\",\n    \"obj_456\",\n    \"obj_789\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e8f9837-6dd5-4866-b337-0c36f401fdd9",
+          "name": "Bulk set preferences",
+          "request": {
+            "name": "Bulk set preferences",
+            "description": {
+              "content": "Bulk sets the preferences for up to 1,000 users at a time. The preference set `:id` can be either `default` or a `tenant.id`. Learn more about [per-tenant preferences](/preferences/tenant-preferences). Note that this is a destructive operation and will replace any existing users' preferences with the preferences sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preferences\": {\n    \"__persistence_strategy__\": \"<string>\",\n    \"categories\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\"\n    },\n    \"channel_types\": {\n      \"chat\": \"<boolean>\",\n      \"email\": \"<boolean>\",\n      \"http\": \"<boolean>\",\n      \"in_app_feed\": \"<boolean>\",\n      \"push\": \"<boolean>\",\n      \"sms\": \"<boolean>\"\n    },\n    \"channels\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\"\n    },\n    \"commercial_subscribed\": \"<boolean>\",\n    \"workflows\": {\n      \"key_0\": \"<boolean>\",\n      \"key_1\": \"<boolean>\"\n    }\n  },\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c11b0bc-76a6-4280-97f1-1e79c874a6f1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"__persistence_strategy__\": \"merge\",\n    \"categories\": {\n      \"marketing\": false,\n      \"transactional\": {\n        \"channel_types\": {\n          \"email\": false\n        }\n      }\n    },\n    \"channel_types\": {\n      \"email\": true\n    },\n    \"channels\": {\n      \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n        \"conditions\": [\n          {\n            \"argument\": \"US\",\n            \"operator\": \"equal_to\",\n            \"variable\": \"recipient.country_code\"\n          }\n        ]\n      },\n      \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"dinosaurs-loose\": {\n        \"channel_types\": {\n          \"email\": false\n        }\n      }\n    }\n  },\n  \"user_ids\": [\n    \"user_1\",\n    \"user_2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d67a9a98-6056-42c0-9890-34b588b0eba0",
+          "name": "Bulk add subscriptions",
+          "request": {
+            "name": "Bulk add subscriptions",
+            "description": {
+              "content": "Add subscriptions for all objects in a single collection. If a subscription for an object in the collection already exists, it will be updated. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `recipient` field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "subscriptions",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"key_0\": 5848.799817345046,\n        \"key_1\": 7465.680022322053\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7823f66-b0af-42ff-89b7-c14afd536764",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "subscriptions",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"project-1\",\n      \"properties\": null,\n      \"recipients\": [\n        {\n          \"id\": \"user_1\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e9b8a71-d85f-4c00-8458-b9e994dc5c0b",
+          "name": "Bulk identify users",
+          "request": {
+            "name": "Bulk identify users",
+            "description": {
+              "content": "Identifies multiple users in a single operation. Allows creating or updating up to 1,000 users in a single batch with various properties, preferences, and channel data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "identify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"users\": [\n    {\n      \"id\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"email\": \"<string>\",\n      \"locale\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"timezone\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"avatar\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"email\": \"<string>\",\n      \"locale\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"timezone\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c478f364-facb-4019-8470-6c5022bdb6a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "identify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"users\": [\n    {\n      \"email\": \"jane@ingen.net\",\n      \"id\": \"user_1\",\n      \"name\": \"Jane Doe\",\n      \"timezone\": \"America/New_York\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36a3973e-c3ce-4658-9c91-c9edc4bf0e87",
+          "name": "Bulk delete tenants",
+          "request": {
+            "name": "Bulk delete tenants",
+            "description": {
+              "content": "Delete up to 1,000 tenants at a time in a single operation. This operation cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant_ids[]",
+                  "value": "<string>",
+                  "description": "(Required) The IDs of the tenants to delete."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant_ids[]",
+                  "value": "<string>",
+                  "description": "(Required) The IDs of the tenants to delete."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52afc885-c55c-4106-8c95-6134938a33ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant_ids[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "640cbd02-0506-4456-ba16-102ef66c75fb",
+          "name": "Bulk update message statuses for channel",
+          "request": {
+            "name": "Bulk update message statuses for channel",
+            "description": {
+              "content": "Bulk update the status of messages for a specific channel. The channel is specified by the `channel_id` parameter. The action to perform is specified by the `action` parameter, where the action is a status change action (e.g. `archive`, `unarchive`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "channels",
+                ":channel_id",
+                "messages",
+                "bulk",
+                ":action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The ID of the channel to update messages for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "action",
+                  "description": "(Required) The target status to be applied to the messages."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"archived\": \"<string>\",\n  \"delivery_status\": \"<string>\",\n  \"engagement_status\": \"<string>\",\n  \"has_tenant\": \"<boolean>\",\n  \"newer_than\": \"<dateTime>\",\n  \"older_than\": \"<dateTime>\",\n  \"recipient_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tenants\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"trigger_data\": \"<string>\",\n  \"workflows\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "362e3872-d91f-4326-b498-09c225730e49",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "channels",
+                    ":channel_id",
+                    "messages",
+                    "bulk",
+                    ":action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The ID of the channel to update messages for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action",
+                      "description": "(Required) The target status to be applied to the messages."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"archived\": \"include\",\n  \"delivery_status\": \"delivered\",\n  \"engagement_status\": \"seen\",\n  \"has_tenant\": true,\n  \"newer_than\": \"2024-01-01T00:00:00Z\",\n  \"older_than\": \"2024-01-01T00:00:00Z\",\n  \"recipient_ids\": [\n    \"recipient1\",\n    \"recipient2\"\n  ],\n  \"tenants\": [\n    \"tenant1\",\n    \"tenant2\"\n  ],\n  \"trigger_data\": \"{\\\"key\\\":\\\"value\\\"}\",\n  \"workflows\": [\n    \"workflow1\",\n    \"workflow2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "736e887c-5c2e-434a-b39b-eed5c80b3e12",
+          "name": "Bulk delete users",
+          "request": {
+            "name": "Bulk delete users",
+            "description": {
+              "content": "Permanently deletes up to 1,000 users at a time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "248d4681-b9f5-45e8-9b92-e57aff2c0f4e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_ids\": [\n    \"user_1\",\n    \"user_2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3b3d4ea-655d-4683-9d0a-69e6c590349c",
+          "name": "Create schedules in bulk",
+          "request": {
+            "name": "Create schedules in bulk",
+            "description": {
+              "content": "Bulk creates up to 1,000 schedules at a time. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `actor`, `recipient`, and `tenant` fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "schedules",
+                "bulk",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"schedules\": [\n    {\n      \"workflow\": \"<string>\",\n      \"actor\": \"<string>\",\n      \"data\": {\n        \"key_0\": false\n      },\n      \"ending_at\": \"<dateTime>\",\n      \"recipient\": \"<string>\",\n      \"repeats\": [\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        },\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        }\n      ],\n      \"scheduled_at\": \"<dateTime>\",\n      \"tenant\": \"<string>\"\n    },\n    {\n      \"workflow\": \"<string>\",\n      \"actor\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 8200.442327709881,\n        \"key_2\": 8459.567206013426\n      },\n      \"ending_at\": \"<dateTime>\",\n      \"recipient\": \"<string>\",\n      \"repeats\": [\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        },\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        }\n      ],\n      \"scheduled_at\": \"<dateTime>\",\n      \"tenant\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a273557-fd67-489a-ac3b-0e4cce6bf1bf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "schedules",
+                    "bulk",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schedules\": [\n    {\n      \"data\": {\n        \"key\": \"value\"\n      },\n      \"ending_at\": null,\n      \"recipient\": \"dnedry\",\n      \"repeats\": [\n        {\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": null,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\",\n            \"sat\",\n            \"sun\"\n          ],\n          \"frequency\": \"daily\",\n          \"hours\": null,\n          \"interval\": 1,\n          \"minutes\": null\n        }\n      ],\n      \"scheduled_at\": null,\n      \"tenant\": \"acme_corp\",\n      \"workflow\": \"comment-created\"\n    },\n    {\n      \"data\": {\n        \"key\": \"value\"\n      },\n      \"ending_at\": null,\n      \"recipient\": \"esattler\",\n      \"repeats\": [\n        {\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": null,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\",\n            \"sat\",\n            \"sun\"\n          ],\n          \"frequency\": \"daily\",\n          \"hours\": null,\n          \"interval\": 1,\n          \"minutes\": null\n        }\n      ],\n      \"scheduled_at\": null,\n      \"tenant\": \"acme_corp\",\n      \"workflow\": \"comment-created\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8ae60b6-99c9-44a9-8d51-994a66a07500",
+          "name": "Bulk set tenants",
+          "request": {
+            "name": "Bulk set tenants",
+            "description": {
+              "content": "Set or update up to 1,000 tenants in a single operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                "bulk",
+                "set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenants\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c4b06a6-6389-4339-85fd-7214a58f5ee8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    "bulk",
+                    "set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenants\": [\n    {\n      \"id\": \"tenant_1\",\n      \"name\": \"Acme Corp, Inc.\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5d20529-8153-4b0b-925c-66f6a80deab3",
+          "name": "Bulk delete subscriptions",
+          "request": {
+            "name": "Bulk delete subscriptions",
+            "description": {
+              "content": "Delete subscriptions for many objects in a single collection type. If a subscription for an object in the collection doesn't exist, it will be skipped.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "subscriptions",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16c3ebf6-ad0b-4aca-b2ef-f1d2e499740a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "subscriptions",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"subscribed-to-object-1\",\n      \"recipients\": [\n        {\n          \"collection\": \"projects\",\n          \"id\": \"subscriber-project-1\"\n        },\n        \"subscriber-user-1\"\n      ]\n    },\n    {\n      \"id\": \"subscribed-to-object-2\",\n      \"recipients\": [\n        \"subscriber-user-2\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6be60869-29cc-433f-b67d-98d7a1d0e212",
+          "name": "Bulk set objects",
+          "request": {
+            "name": "Bulk set objects",
+            "description": {
+              "content": "Bulk sets up to 1,000 objects at a time in the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"objects\": [\n    {\n      \"id\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7dcb7636-57b3-4407-8a57-bc01c9a28de5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"objects\": [\n    {\n      \"id\": \"project_1\",\n      \"name\": \"My project\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"1ffb3873-1a0c-3f2a-6e19-d48d7e26cef0\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1994-09-19T19:50:52.185Z\",\n  \"inserted_at\": \"1966-11-25T05:42:12.347Z\",\n  \"completed_at\": \"1999-04-01T17:07:27.029Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"2006-04-27T01:48:07.783Z\",\n  \"progress_path\": \"http://WcaLJnMSizaWkrZFGoAehEYzLWM.fezwt3H6b3DHQEQIV8xR,+sPGl3zStTVKQjVRXNdtQyRhHNASpstnOYevUzff+v\",\n  \"started_at\": \"1952-11-07T23:12:10.562Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e395fe7f-96c9-4b83-90c7-c90e757582ba",
+    "name": "Knock Audiences Bulk operations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

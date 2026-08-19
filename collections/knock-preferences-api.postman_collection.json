@@ -1,0 +1,2115 @@
+{
+  "item": [
+    {
+      "id": "b66a1404-05ff-4fdc-ab7f-f4b67de15074",
+      "name": "Preferences",
+      "description": {
+        "content": "Preferences are a way to configure how notifications are sent to recipients. They are a set of configuration that determines whether a recipient should receive a notification for a given workflow on a specific channel.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3430f944-e85c-4477-ae43-d02719f421a9",
+          "name": "Update workflows in preference set",
+          "request": {
+            "name": "Update workflows in preference set",
+            "description": {
+              "content": "Updates the workflow preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "822ffb46-be29-48ff-a64d-3a8ce59c0b20",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7ce5b1b-2c50-4c4f-8ad1-07f99ba8d1ce",
+          "name": "Update a channel type preference",
+          "request": {
+            "name": "Update a channel type preference",
+            "description": {
+              "content": "Updates a specific channel type preference for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "channel_types",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88e1a1d0-f041-4498-8973-f11a003a00a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "channel_types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d61ebc2-2eaa-4e04-a5a9-4b1f78a36d4e",
+          "name": "Update category in user preference set",
+          "request": {
+            "name": "Update category in user preference set",
+            "description": {
+              "content": "Updates a single category in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "categories",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c66165b-11fb-4d4c-bd2d-8d6b68702a55",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "categories",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3220399-b0be-482c-bd2a-1a94ebc56187",
+          "name": "Update a category preference",
+          "request": {
+            "name": "Update a category preference",
+            "description": {
+              "content": "Updates a specific category preference for an object's preference set. Deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "categories",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c565fe6b-94d9-4b52-8975-6fff65db99cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "categories",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "862db773-5507-420f-9ffd-e2b429a6de01",
+          "name": "List preference sets",
+          "request": {
+            "name": "List preference sets",
+            "description": {
+              "content": "Returns a paginated list of preference sets for the specified object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "137b8c0b-ee66-47f7-a7e0-db26caa5d8c2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    },\n    \"channel_types\": {\n      \"chat\": true,\n      \"email\": true,\n      \"http\": false,\n      \"in_app_feed\": true,\n      \"push\": false,\n      \"sms\": true\n    },\n    \"channels\": {\n      \"key_0\": true\n    },\n    \"commercial_subscribed\": false,\n    \"workflows\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    }\n  },\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false,\n      \"key_1\": false\n    },\n    \"channel_types\": {\n      \"chat\": false,\n      \"email\": false,\n      \"http\": false,\n      \"in_app_feed\": true,\n      \"push\": true,\n      \"sms\": false\n    },\n    \"channels\": {\n      \"key_0\": false\n    },\n    \"commercial_subscribed\": false,\n    \"workflows\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0330afc9-7d37-4291-96d8-4a32229659b1",
+          "name": "Update a workflow preference",
+          "request": {
+            "name": "Update a workflow preference",
+            "description": {
+              "content": "Updates a specific workflow preference for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "workflows",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "045298f4-3d6b-4776-9e7b-5ddd374969fd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "workflows",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07e6eda2-2db5-4c84-881c-b12a5443821d",
+          "name": "Update workflows in preference set",
+          "request": {
+            "name": "Update workflows in preference set",
+            "description": {
+              "content": "Updates the workflows in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb2fabde-7464-474f-8738-d379e6b5e9d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa60adc6-51b6-497c-8192-fb6be7b9094c",
+          "name": "Update categories in preference set",
+          "request": {
+            "name": "Update categories in preference set",
+            "description": {
+              "content": "Updates the category preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01988ba5-56bc-4eff-9f11-1593de049750",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1291c7fa-1cb3-4669-ba41-0f2f9c3c1457",
+          "name": "Update categories in user preference set",
+          "request": {
+            "name": "Update categories in user preference set",
+            "description": {
+              "content": "Updates the categories in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3aa6a9c1-f2f2-432e-9411-5649c2b80f62",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7389c604-801e-4ffa-a619-e95b716e344b",
+          "name": "Update channel type in preference set",
+          "request": {
+            "name": "Update channel type in preference set",
+            "description": {
+              "content": "Updates a single channel type in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "channel_types",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47ff75b9-7d0c-4152-81bd-301aafa3120b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "channel_types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d06435c-6d09-4dcb-a5e4-5227cc060477",
+          "name": "List user preference sets",
+          "request": {
+            "name": "List user preference sets",
+            "description": {
+              "content": "Retrieves a list of all preference sets for a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1935ef45-c7e8-4fc7-9025-db5de096ff4a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false\n    },\n    \"channel_types\": {\n      \"chat\": true,\n      \"email\": true,\n      \"http\": true,\n      \"in_app_feed\": false,\n      \"push\": true,\n      \"sms\": false\n    },\n    \"channels\": {\n      \"key_0\": false,\n      \"key_1\": true,\n      \"key_2\": false\n    },\n    \"commercial_subscribed\": false,\n    \"workflows\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    }\n  },\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false,\n      \"key_1\": false\n    },\n    \"channel_types\": {\n      \"chat\": true,\n      \"email\": false,\n      \"http\": true,\n      \"in_app_feed\": true,\n      \"push\": false,\n      \"sms\": false\n    },\n    \"channels\": {\n      \"key_0\": true,\n      \"key_1\": true\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"key_0\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d71a14d-21d7-49ca-a021-559a0124355e",
+          "name": "Update channel types in preference set",
+          "request": {
+            "name": "Update channel types in preference set",
+            "description": {
+              "content": "Updates the channel type preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "channel_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eac39942-33bd-40da-bd84-efc5c092abf7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "channel_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a9bc64c-7e8a-42e0-ac71-f2bbf63c4faf",
+          "name": "Update workflow in user preference set",
+          "request": {
+            "name": "Update workflow in user preference set",
+            "description": {
+              "content": "Updates a single workflow in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "workflows",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6205304-ad0a-4808-8615-a3847edeed9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "workflows",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "458d5c77-6302-4d56-afbd-63e03a322d2b",
+          "name": "Delete object preference set",
+          "request": {
+            "name": "Delete object preference set",
+            "description": {
+              "content": "Unsets the preference set for the object, removing it entirely.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13bcebdd-78f8-425c-a126-f81f9738ffd4",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d19f9825-8d3c-40ce-9a1d-7f29012a2522",
+          "name": "Get object preference set",
+          "request": {
+            "name": "Get object preference set",
+            "description": {
+              "content": "Returns the preference set for the specified object and preference set `id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72dd23e8-8ecb-4ce0-96ad-fce50521432e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": false,\n    \"http\": false,\n    \"in_app_feed\": false,\n    \"push\": false,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": false\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c15d1d06-03aa-4ef0-a087-dbe584b9c26f",
+          "name": "Update a preference set",
+          "request": {
+            "name": "Update a preference set",
+            "description": {
+              "content": "Sets preferences within the given preference set. By default, this is a destructive operation and will replace any existing preferences with the preferences given. Use '__persistence_strategy': 'merge' to merge with existing preferences instead. If no object exists in the current environment for the given `:collection` and `:object_id`, Knock will create the object as part of this request. The preference set `:id` can be either `default` or a `tenant.id`. Learn more about [per-tenant preferences](/preferences/tenant-preferences).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__persistence_strategy__\": \"<string>\",\n  \"categories\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": \"<boolean>\",\n  \"workflows\": {\n    \"key_0\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e27ba61b-b6d8-4b8f-ba95-a551e5bd5f42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__persistence_strategy__\": \"merge\",\n  \"categories\": {\n    \"marketing\": false,\n    \"transactional\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  },\n  \"channel_types\": {\n    \"email\": true\n  },\n  \"channels\": {\n    \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n      \"conditions\": [\n        {\n          \"argument\": \"US\",\n          \"operator\": \"equal_to\",\n          \"variable\": \"recipient.country_code\"\n        }\n      ]\n    },\n    \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"dinosaurs-loose\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb5c707d-41b0-4826-8290-feee1bebaf42",
+          "name": "Delete user preference set",
+          "request": {
+            "name": "Delete user preference set",
+            "description": {
+              "content": "Unsets the preference set for the user, removing it entirely.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5ce811a-d5b9-4785-aac0-de7a3f96d9fe",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcc04702-4db4-40f4-876f-c978e40a8e9d",
+          "name": "Get user preference set",
+          "request": {
+            "name": "Get user preference set",
+            "description": {
+              "content": "Retrieves a specific preference set for a user identified by the preference set ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "The unique identifier for the tenant."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa489f38-8054-42c0-b2db-5e2f902f63d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07a5d4b7-aa75-4ac3-8c38-9ede55b12aad",
+          "name": "Update user preference set",
+          "request": {
+            "name": "Update user preference set",
+            "description": {
+              "content": "Updates a complete preference set for a user. By default, this is a destructive operation and will replace any existing preferences with the preferences given. Use '__persistence_strategy__': 'merge' to merge with existing preferences instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) The unique identifier of the user."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__persistence_strategy__\": \"<string>\",\n  \"categories\": {\n    \"key_0\": \"<boolean>\"\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": \"<boolean>\",\n  \"workflows\": {\n    \"key_0\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0863b15a-6289-4c23-bac3-dd5d579f5ff5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) The unique identifier of the user."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__persistence_strategy__\": \"merge\",\n  \"categories\": {\n    \"marketing\": false,\n    \"transactional\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  },\n  \"channel_types\": {\n    \"email\": true\n  },\n  \"channels\": {\n    \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n      \"conditions\": [\n        {\n          \"argument\": \"US\",\n          \"operator\": \"equal_to\",\n          \"variable\": \"recipient.country_code\"\n        }\n      ]\n    },\n    \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"dinosaurs-loose\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d13b56c1-c06d-4eef-a81b-cffe4be5a4af",
+          "name": "Update channel types in preference set",
+          "request": {
+            "name": "Update channel types in preference set",
+            "description": {
+              "content": "Updates the channel types in a specific user preference set. This operation is deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "users",
+                ":user_id",
+                "preferences",
+                ":id",
+                "channel_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5614e6b-36d7-4604-a2b4-b261f87e9d1a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "users",
+                    ":user_id",
+                    "preferences",
+                    ":id",
+                    "channel_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e9f0f6c-40d6-4fe8-ab14-4c9f307e3a15",
+    "name": "Knock Audiences Preferences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

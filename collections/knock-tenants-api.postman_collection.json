@@ -1,0 +1,713 @@
+{
+  "item": [
+    {
+      "id": "49ef4a37-3078-4970-b34f-c07727e849e4",
+      "name": "Tenants",
+      "description": {
+        "content": "A tenant represents a top-level entity from your system, like a company, organization, account, or workspace.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cf04020-1153-48c9-ada6-0afef5f36b67",
+          "name": "Delete a tenant",
+          "request": {
+            "name": "Delete a tenant",
+            "description": {
+              "content": "Delete a tenant and all associated data. This operation cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier for the tenant."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "639ea635-8a8e-4243-9548-9fa20c424831",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier for the tenant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "708a1de0-9318-4386-9497-1642d5bff627",
+          "name": "Get a tenant",
+          "request": {
+            "name": "Get a tenant",
+            "description": {
+              "content": "Get a tenant by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resolve_full_preference_settings",
+                  "value": "<boolean>",
+                  "description": "When true, merges environment-level default preferences into the tenant's `settings.preference_set` field before returning the response. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier for the tenant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65d59ddf-e75f-464a-b388-36de17a5575f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolve_full_preference_settings",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier for the tenant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"Tenant\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"settings\": {\n    \"branding\": {\n      \"icon_url\": \"https://example.com/trex_silhouette_icon.png\",\n      \"logo_url\": \"https://example.com/amber_fossil_logo.png\",\n      \"primary_color\": \"#DF1A22\",\n      \"primary_color_contrast\": \"#FFDE00\"\n    },\n    \"preference_set\": {\n      \"id\": \"default\",\n      \"categories\": {\n        \"key_0\": false\n      },\n      \"channel_types\": {\n        \"chat\": false,\n        \"email\": true,\n        \"http\": false,\n        \"in_app_feed\": true,\n        \"push\": true,\n        \"sms\": true\n      },\n      \"channels\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": false,\n        \"key_3\": true\n      },\n      \"commercial_subscribed\": false,\n      \"workflows\": {\n        \"key_0\": false,\n        \"key_1\": false,\n        \"key_2\": false\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6c87303-d9c5-434b-8e72-b5bb9a031c76",
+          "name": "Set a tenant",
+          "request": {
+            "name": "Set a tenant",
+            "description": {
+              "content": "Sets a tenant within an environment, performing an upsert operation. Any existing properties will be merged with the incoming properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resolve_full_preference_settings",
+                  "value": "<boolean>",
+                  "description": "When true, merges environment-level default preferences into the tenant's `settings.preference_set` field before returning the response. Defaults to false."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier for the tenant."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_data\": {},\n  \"name\": \"<string>\",\n  \"settings\": {\n    \"branding\": {\n      \"icon_url\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"primary_color\": \"<string>\",\n      \"primary_color_contrast\": \"<string>\"\n    },\n    \"preference_set\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72f90f91-0719-4ccd-8802-208a1f96fa57",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolve_full_preference_settings",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier for the tenant."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Jurassic Park\",\n  \"settings\": {\n    \"branding\": {\n      \"icon_url\": \"https://example.com/trex_silhouette_icon.png\",\n      \"logo_url\": \"https://example.com/amber_fossil_logo.png\",\n      \"primary_color\": \"#DF1A22\",\n      \"primary_color_contrast\": \"#FFDE00\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"Tenant\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"settings\": {\n    \"branding\": {\n      \"icon_url\": \"https://example.com/trex_silhouette_icon.png\",\n      \"logo_url\": \"https://example.com/amber_fossil_logo.png\",\n      \"primary_color\": \"#DF1A22\",\n      \"primary_color_contrast\": \"#FFDE00\"\n    },\n    \"preference_set\": {\n      \"id\": \"default\",\n      \"categories\": {\n        \"marketing\": {\n          \"channel_types\": {\n            \"email\": false\n          }\n        }\n      },\n      \"channel_types\": {\n        \"email\": true,\n        \"sms\": {\n          \"conditions\": [\n            {\n              \"argument\": \"US\",\n              \"operator\": \"equal_to\",\n              \"variable\": \"recipient.country_code\"\n            }\n          ]\n        }\n      },\n      \"channels\": {\n        \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n          \"conditions\": [\n            {\n              \"argument\": \"US\",\n              \"operator\": \"equal_to\",\n              \"variable\": \"recipient.country_code\"\n            }\n          ]\n        },\n        \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n      },\n      \"commercial_subscribed\": false,\n      \"workflows\": {\n        \"dinosaurs-loose\": {\n          \"channel_types\": {\n            \"email\": false\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7beda7ce-7f5b-4820-ac28-7315fafa4927",
+          "name": "List tenants",
+          "request": {
+            "name": "List tenants",
+            "description": {
+              "content": "List tenants for the current environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant_id",
+                  "value": "<string>",
+                  "description": "Filter tenants by ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter tenants by name."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba4c41cb-bed3-4b8d-ae71-de1db564132b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"Tenant\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"branding\": {\n          \"icon_url\": \"https://example.com/trex_silhouette_icon.png\",\n          \"logo_url\": \"https://example.com/amber_fossil_logo.png\",\n          \"primary_color\": \"#DF1A22\",\n          \"primary_color_contrast\": \"#FFDE00\"\n        },\n        \"preference_set\": {\n          \"id\": \"default\",\n          \"categories\": {\n            \"marketing\": {\n              \"channel_types\": {\n                \"email\": false\n              }\n            }\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": true,\n          \"workflows\": {\n            \"dinosaurs-loose\": {\n              \"channel_types\": {\n                \"email\": false\n              }\n            }\n          }\n        }\n      }\n    },\n    {\n      \"__typename\": \"Tenant\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"branding\": {\n          \"icon_url\": \"https://example.com/trex_silhouette_icon.png\",\n          \"logo_url\": \"https://example.com/amber_fossil_logo.png\",\n          \"primary_color\": \"#DF1A22\",\n          \"primary_color_contrast\": \"#FFDE00\"\n        },\n        \"preference_set\": {\n          \"id\": \"default\",\n          \"categories\": {\n            \"marketing\": {\n              \"channel_types\": {\n                \"email\": false\n              }\n            }\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": false,\n          \"workflows\": {\n            \"dinosaurs-loose\": {\n              \"channel_types\": {\n                \"email\": false\n              }\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "033c52c2-1f37-468a-9245-44498cd5be9f",
+          "name": "Bulk delete tenants",
+          "request": {
+            "name": "Bulk delete tenants",
+            "description": {
+              "content": "Delete up to 1,000 tenants at a time in a single operation. This operation cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant_ids[]",
+                  "value": "<string>",
+                  "description": "(Required) The IDs of the tenants to delete."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant_ids[]",
+                  "value": "<string>",
+                  "description": "(Required) The IDs of the tenants to delete."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a65068ed-5ea3-4057-b31b-a892670bbc06",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_ids[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant_ids[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"5198d549-9afe-87fe-42d9-e7c730926cae\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2005-10-08T01:04:01.039Z\",\n  \"inserted_at\": \"2019-02-24T05:40:28.466Z\",\n  \"completed_at\": \"1961-07-02T21:40:30.193Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1973-11-08T09:57:23.102Z\",\n  \"progress_path\": \"http://HFGEH.fcjjJGBF1jm1t+jHBt\",\n  \"started_at\": \"1992-10-25T13:45:16.084Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "412d3bcd-2f3d-4c2a-b817-b1f91f9c4c79",
+          "name": "Bulk set tenants",
+          "request": {
+            "name": "Bulk set tenants",
+            "description": {
+              "content": "Set or update up to 1,000 tenants in a single operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tenants",
+                "bulk",
+                "set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenants\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2ec78ab-0b8d-43bc-9da4-5361ba1cb2ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tenants",
+                    "bulk",
+                    "set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenants\": [\n    {\n      \"id\": \"tenant_1\",\n      \"name\": \"Acme Corp, Inc.\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"202d272b-54b1-fa64-4c40-ec6629d04a18\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2021-07-19T21:28:34.988Z\",\n  \"inserted_at\": \"1959-07-17T07:57:33.332Z\",\n  \"completed_at\": \"1963-11-14T22:34:39.276Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1982-09-21T07:09:36.924Z\",\n  \"progress_path\": \"https://iRkbuvMFYxyObsM.rzpe8qSyUC26jHHKxd0-pcIQjRp,mQdeDxqxKlm.N\",\n  \"started_at\": \"2025-01-02T09:49:33.178Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7da72538-411a-4a70-bf9f-a1e0b1182ac6",
+    "name": "Knock Audiences Tenants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

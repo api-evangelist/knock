@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "261ecff0-4162-4aa7-ae29-b5b0aa6ec2c2",
+      "name": "Workflow Triggers",
+      "description": {
+        "content": "Operations for triggering and canceling workflow executions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7689185-671c-4526-8dfd-24b1b0f29bc5",
+          "name": "Cancel workflow",
+          "request": {
+            "name": "Cancel workflow",
+            "description": {
+              "content": "Cancels a previously triggered workflow using the provided cancellation key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notify",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"cancellation_key\": \"<string>\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc76a27e-9534-4fb0-891d-990a29095d5c",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "notify",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"cancellation_key\": \"<string>\",\n  \"recipients\": [\n    \"user_123\",\n    \"user_123\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c1de341-5e6f-4f4a-8b13-6d56136fad7f",
+          "name": "Trigger workflow",
+          "request": {
+            "name": "Trigger workflow",
+            "description": {
+              "content": "Triggers a workflow with the given key, actor, recipients, and optional data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"actor\": \"<string>\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cancellation_key\": \"<string>\",\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": true,\n    \"key_2\": 6449.609201756196,\n    \"key_3\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9581ba56-b4ea-490d-a7dd-c1695c3bfa85",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "notify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"actor\": \"user_123\",\n  \"recipients\": [\n    \"user_123\",\n    \"user_123\"\n  ],\n  \"cancellation_key\": \"<string>\",\n  \"data\": {\n    \"key_0\": 3659,\n    \"key_1\": 5493,\n    \"key_2\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result_id\": \"wf_1234567890abcdef\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "154dcafa-2355-45d5-844f-419d27038145",
+    "name": "Knock Audiences Workflow Triggers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

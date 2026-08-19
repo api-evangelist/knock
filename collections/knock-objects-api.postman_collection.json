@@ -1,0 +1,3593 @@
+{
+  "item": [
+    {
+      "id": "d6114497-2781-40a9-900b-89da4c461f42",
+      "name": "Objects",
+      "description": {
+        "content": "An object represents a resource in your system that you want to map into Knock.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51ecc728-aa9b-4a48-aa87-f4bbafb5f551",
+          "name": "Update workflows in preference set",
+          "request": {
+            "name": "Update workflows in preference set",
+            "description": {
+              "content": "Updates the workflow preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e9f55b7-3d08-496a-a2c8-885a7d5c550a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": true,\n    \"http\": true,\n    \"in_app_feed\": true,\n    \"push\": true,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc4cb7d8-2a1d-4035-adbd-9f2ecffe8c58",
+          "name": "Update a channel type preference",
+          "request": {
+            "name": "Update a channel type preference",
+            "description": {
+              "content": "Updates a specific channel type preference for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "channel_types",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6486682f-3a61-44c1-a7f7-c4c9d8827036",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "channel_types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": true,\n    \"http\": true,\n    \"in_app_feed\": true,\n    \"push\": true,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be07275c-576d-44a2-a95d-9333d787cb36",
+          "name": "Bulk delete objects",
+          "request": {
+            "name": "Bulk delete objects",
+            "description": {
+              "content": "Bulk deletes objects from the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"object_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "087de5c6-5d30-41a6-ae53-33b7bc789034",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"object_ids\": [\n    \"obj_123\",\n    \"obj_456\",\n    \"obj_789\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"fd1f435d-8f44-fd56-b7a9-ec944cdf14e9\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"2023-09-23T01:52:08.045Z\",\n  \"inserted_at\": \"1981-03-25T01:39:41.439Z\",\n  \"completed_at\": \"1997-11-10T05:22:47.963Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1988-06-24T20:52:24.313Z\",\n  \"progress_path\": \"https://AkxwfeVdcDDP.qwoUV2+,nUlozlAOd,Q178\",\n  \"started_at\": \"1948-01-02T15:18:24.050Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01458378-4cfb-4ee4-9fe5-434a3947b730",
+          "name": "List object schedules",
+          "request": {
+            "name": "List object schedules",
+            "description": {
+              "content": "Returns a paginated list of schedules for an object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":id",
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "Filter schedules by tenant id."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow",
+                  "value": "<string>",
+                  "description": "Filter schedules by workflow id."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the object to list schedules for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection of the object to list schedules for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "990293bb-09a7-47ba-ac9e-2ebb6c384f35",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":id",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workflow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the object to list schedules for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection of the object to list schedules for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"id\": \"b72d2213-f78d-4adc-eb0e-65c4f2946014\",\n      \"workflow\": \"string\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1958-10-12T06:34:35.866Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1954-08-02T00:58:56.653Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"repeats\": [\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        },\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        }\n      ],\n      \"inserted_at\": \"2008-09-08T18:50:55.543Z\",\n      \"updated_at\": \"1996-06-20T12:17:10.079Z\",\n      \"__typename\": \"Schedule\",\n      \"actor\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1960-07-16T02:35:47.815Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"2000-03-05T09:58:01.332Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": 3667.3571572254405\n      },\n      \"last_occurrence_at\": \"2013-05-09T11:28:10.008Z\",\n      \"next_occurrence_at\": \"2011-09-18T06:47:07.969Z\",\n      \"tenant\": \"string\"\n    },\n    {\n      \"id\": \"a230c55c-d9a7-0012-6bac-731a74cfb9ca\",\n      \"workflow\": \"string\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"2010-09-14T07:25:13.144Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1948-11-18T04:35:53.458Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"repeats\": [\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        },\n        {\n          \"frequency\": \"daily\",\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": 1,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\"\n          ],\n          \"hours\": 0,\n          \"interval\": 1,\n          \"minutes\": 0\n        }\n      ],\n      \"inserted_at\": \"1962-08-18T23:36:30.814Z\",\n      \"updated_at\": \"2021-09-04T00:42:41.422Z\",\n      \"__typename\": \"Schedule\",\n      \"actor\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1972-06-04T14:17:33.843Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1947-07-31T13:48:02.880Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": false\n      },\n      \"last_occurrence_at\": \"2001-11-16T10:21:48.032Z\",\n      \"next_occurrence_at\": \"1995-05-19T01:07:12.894Z\",\n      \"tenant\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "093d399a-dabf-406a-88db-7ad8a8ae3b0e",
+          "name": "List messages",
+          "request": {
+            "name": "List messages",
+            "description": {
+              "content": "Returns a paginated list of messages for a specific object in the given collection. Allows filtering by message status and provides various sorting options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":id",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>",
+                  "description": "Limits the results to items with the corresponding tenant."
+                },
+                {
+                  "disabled": false,
+                  "key": "channel_id",
+                  "value": "<string>",
+                  "description": "Limits the results to items with the corresponding channel ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given delivery status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given delivery status."
+                },
+                {
+                  "disabled": false,
+                  "key": "engagement_status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given engagement status."
+                },
+                {
+                  "disabled": false,
+                  "key": "engagement_status[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages with the given engagement status."
+                },
+                {
+                  "disabled": false,
+                  "key": "message_ids[]",
+                  "value": "<string>",
+                  "description": "Limits the results to only the message IDs given (max 50). Note: when using this option, the results will be subject to any other filters applied to the query."
+                },
+                {
+                  "disabled": false,
+                  "key": "message_ids[]",
+                  "value": "<string>",
+                  "description": "Limits the results to only the message IDs given (max 50). Note: when using this option, the results will be subject to any other filters applied to the query."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages related to any of the provided categories."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_categories[]",
+                  "value": "<string>",
+                  "description": "Limits the results to messages related to any of the provided categories."
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "Limits the results to messages triggered by the given workflow key."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_run_id",
+                  "value": "<uuid>",
+                  "description": "Limits the results to messages associated with the top-level workflow run ID returned by the workflow trigger request."
+                },
+                {
+                  "disabled": false,
+                  "key": "workflow_recipient_run_id",
+                  "value": "<uuid>",
+                  "description": "Limits the results to messages for a specific recipient's workflow run."
+                },
+                {
+                  "disabled": false,
+                  "key": "trigger_data",
+                  "value": "<string>",
+                  "description": "Limits the results to only messages that were generated with the given data. See [trigger data filtering](/api-reference/overview/trigger-data-filtering) for more information."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.gte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted after or on the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lt",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "inserted_at.lte",
+                  "value": "<string>",
+                  "description": "Limits the results to items inserted before or on the given date."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a5e32a8-6f4e-45f1-8a91-d6cfc794e20e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "tenant_123"
+                    },
+                    {
+                      "key": "channel_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "status[]",
+                      "value": "delivered"
+                    },
+                    {
+                      "key": "engagement_status[]",
+                      "value": "unread"
+                    },
+                    {
+                      "key": "message_ids[]",
+                      "value": "1jNaXzB2RZX3LY8wVQnfCKyPnv7"
+                    },
+                    {
+                      "key": "workflow_categories[]",
+                      "value": "workflow_123"
+                    },
+                    {
+                      "key": "source",
+                      "value": "comment-created"
+                    },
+                    {
+                      "key": "workflow_run_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "workflow_recipient_run_id",
+                      "value": "123e4567-e89b-12d3-a456-426614174000"
+                    },
+                    {
+                      "key": "trigger_data",
+                      "value": "{\"comment_id\": \"123\"}"
+                    },
+                    {
+                      "key": "inserted_at.gt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.gte",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lt",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "inserted_at.lte",
+                      "value": "2025-01-01T00:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"__typename\": \"Message\",\n      \"id\": \"string\",\n      \"channel_id\": \"4f19c9a2-b123-d057-383e-388e2d18a023\",\n      \"status\": \"sent\",\n      \"inserted_at\": \"2020-07-12T16:21:46.424Z\",\n      \"updated_at\": \"2002-12-14T03:50:08.862Z\",\n      \"recipient\": \"user_123\",\n      \"engagement_statuses\": [\n        \"read\",\n        \"seen\"\n      ],\n      \"source\": {\n        \"__typename\": \"NotificationSource\",\n        \"categories\": [\n          \"collaboration\"\n        ],\n        \"key\": \"comment-created\",\n        \"step_ref\": \"email_step_1\",\n        \"version_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"workflow_recipient_run_id\": \"456e7890-a12b-34c5-d678-456789012345\",\n        \"workflow_run_id\": \"987e6543-e21c-34b5-c678-987654321000\"\n      },\n      \"actors\": [\n        \"user_123\",\n        \"user_123\"\n      ],\n      \"archived_at\": \"2007-07-19T08:35:37.346Z\",\n      \"channel\": {\n        \"id\": \"string\",\n        \"type\": \"sms\",\n        \"provider\": \"string\",\n        \"created_at\": \"2025-11-29T22:53:26.017Z\",\n        \"updated_at\": \"2007-11-13T21:47:05.280Z\",\n        \"key\": \"string\",\n        \"name\": \"string\"\n      },\n      \"clicked_at\": \"2018-01-04T06:03:59.114Z\",\n      \"data\": {\n        \"key_0\": true,\n        \"key_1\": 8482.175539010788\n      },\n      \"interacted_at\": \"2012-04-29T17:54:12.221Z\",\n      \"link_clicked_at\": \"1946-10-01T19:47:03.077Z\",\n      \"metadata\": {\n        \"external_id\": \"123e4567-e89b-12d3-a456-426614174000\"\n      },\n      \"read_at\": \"1982-10-20T09:12:18.527Z\",\n      \"scheduled_at\": \"1992-06-27T07:05:15.308Z\",\n      \"seen_at\": \"2026-04-29T17:55:53.696Z\",\n      \"tenant\": \"string\",\n      \"workflow\": \"string\"\n    },\n    {\n      \"__typename\": \"Message\",\n      \"id\": \"string\",\n      \"channel_id\": \"ef769b93-8bcf-2fa3-761f-1c7f6d5c8238\",\n      \"status\": \"sent\",\n      \"inserted_at\": \"1965-06-30T09:49:17.925Z\",\n      \"updated_at\": \"2001-08-22T05:35:19.530Z\",\n      \"recipient\": \"user_123\",\n      \"engagement_statuses\": [\n        \"read\",\n        \"seen\"\n      ],\n      \"source\": {\n        \"__typename\": \"NotificationSource\",\n        \"categories\": [\n          \"collaboration\"\n        ],\n        \"key\": \"comment-created\",\n        \"step_ref\": \"email_step_1\",\n        \"version_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"workflow_recipient_run_id\": \"456e7890-a12b-34c5-d678-456789012345\",\n        \"workflow_run_id\": \"987e6543-e21c-34b5-c678-987654321000\"\n      },\n      \"actors\": [\n        \"user_123\",\n        \"user_123\"\n      ],\n      \"archived_at\": \"1948-05-30T01:53:35.925Z\",\n      \"channel\": {\n        \"id\": \"string\",\n        \"type\": \"in_app_feed\",\n        \"provider\": \"string\",\n        \"created_at\": \"2022-12-19T14:10:34.699Z\",\n        \"updated_at\": \"1948-04-23T09:30:25.690Z\",\n        \"key\": \"string\",\n        \"name\": \"string\"\n      },\n      \"clicked_at\": \"2013-12-17T20:04:30.086Z\",\n      \"data\": {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      },\n      \"interacted_at\": \"2007-05-23T20:50:57.170Z\",\n      \"link_clicked_at\": \"1965-07-24T21:13:32.772Z\",\n      \"metadata\": {\n        \"external_id\": \"123e4567-e89b-12d3-a456-426614174000\"\n      },\n      \"read_at\": \"1961-05-28T00:52:56.926Z\",\n      \"scheduled_at\": \"1974-09-12T07:49:15.480Z\",\n      \"seen_at\": \"2001-10-28T09:13:17.188Z\",\n      \"tenant\": \"string\",\n      \"workflow\": \"string\"\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1d31d79-e182-41a7-9816-63f4916bc7c8",
+          "name": "Update a category preference",
+          "request": {
+            "name": "Update a category preference",
+            "description": {
+              "content": "Updates a specific category preference for an object's preference set. Deprecated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "categories",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee5a5512-94cb-4c64-9584-9a03d7b664f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "categories",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": true,\n    \"http\": true,\n    \"in_app_feed\": true,\n    \"push\": true,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8999a58-a5df-4ff0-8ad7-765997ea5379",
+          "name": "List preference sets",
+          "request": {
+            "name": "List preference sets",
+            "description": {
+              "content": "Returns a paginated list of preference sets for the specified object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "994730ff-8b79-4c1e-aaca-ec162520d00b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false,\n      \"key_3\": false\n    },\n    \"channel_types\": {\n      \"chat\": true,\n      \"email\": false,\n      \"http\": false,\n      \"in_app_feed\": true,\n      \"push\": false,\n      \"sms\": false\n    },\n    \"channels\": {\n      \"key_0\": true,\n      \"key_1\": false\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"key_0\": false\n    }\n  },\n  {\n    \"id\": \"default\",\n    \"categories\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    },\n    \"channel_types\": {\n      \"chat\": true,\n      \"email\": false,\n      \"http\": true,\n      \"in_app_feed\": true,\n      \"push\": true,\n      \"sms\": false\n    },\n    \"channels\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    },\n    \"commercial_subscribed\": true,\n    \"workflows\": {\n      \"key_0\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b798f23-be3e-4b79-93ea-4009bb5bbe91",
+          "name": "Update a workflow preference",
+          "request": {
+            "name": "Update a workflow preference",
+            "description": {
+              "content": "Updates a specific workflow preference for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "workflows",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53d4398d-8485-4e2f-a48c-81df0c34820b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "workflows",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": true,\n    \"http\": true,\n    \"in_app_feed\": true,\n    \"push\": true,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc8419f9-2874-4db4-a1b2-a19a4c0f763b",
+          "name": "Bulk add subscriptions",
+          "request": {
+            "name": "Bulk add subscriptions",
+            "description": {
+              "content": "Add subscriptions for all objects in a single collection. If a subscription for an object in the collection already exists, it will be updated. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `recipient` field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "subscriptions",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": 9113,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"properties\": {\n        \"key_0\": 3295.0003434709774\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74c83df7-5a68-4388-b99e-f774689a2566",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "subscriptions",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"project-1\",\n      \"properties\": null,\n      \"recipients\": [\n        {\n          \"id\": \"user_1\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"23fec656-bdf9-da6e-aaad-c9cc46050023\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1974-02-14T17:24:05.675Z\",\n  \"inserted_at\": \"2022-09-14T01:22:01.836Z\",\n  \"completed_at\": \"1968-07-26T11:56:25.521Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1992-05-28T08:13:18.904Z\",\n  \"progress_path\": \"https://tYwDPOLjvrLfWZZwZEGFj.xnQfyJtQneOSlm0QfV.8VtJp4AzZia5eT\",\n  \"started_at\": \"1957-01-04T04:13:59.156Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "352e581d-f16e-4e38-b9ae-997b19f16fd9",
+          "name": "Update categories in preference set",
+          "request": {
+            "name": "Update categories in preference set",
+            "description": {
+              "content": "Updates the category preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87a76698-f2a1-4658-91c1-aae30aaf204c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": false\n  },\n  \"channel_types\": {\n    \"chat\": false,\n    \"email\": true,\n    \"http\": true,\n    \"in_app_feed\": true,\n    \"push\": true,\n    \"sms\": true\n  },\n  \"channels\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"commercial_subscribed\": false,\n  \"workflows\": {\n    \"key_0\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35f3dd0e-29ae-4918-8f72-1e938fc84d9f",
+          "name": "Delete an object",
+          "request": {
+            "name": "Delete an object",
+            "description": {
+              "content": "Permanently removes an object from the specified collection. This operation cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the object."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "387177bf-fce8-425b-b746-a592bd23af0b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "addd006c-ef05-4442-b50b-cf0de51f2240",
+          "name": "Get an object",
+          "request": {
+            "name": "Get an object",
+            "description": {
+              "content": "Retrieves a specific object by its ID from the specified collection. Returns the object with all its properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "884a492e-099a-4ae4-9b7c-a654fab8c5a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"Object\",\n  \"id\": \"string\",\n  \"collection\": \"string\",\n  \"updated_at\": \"2002-02-21T19:27:52.275Z\",\n  \"created_at\": \"1986-03-15T09:09:47.669Z\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1047.29249086021\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bf4f832-b3f5-42f7-9319-1891a460f5d9",
+          "name": "Set an object",
+          "request": {
+            "name": "Set an object",
+            "description": {
+              "content": "Creates a new object or updates an existing one in the specified collection. This operation is used to identify objects with their properties, as well as optional preferences and channel data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_data\": {\n    \"key_0\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_1\": {\n      \"tokens\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"locale\": \"<string>\",\n  \"name\": \"<string>\",\n  \"preferences\": {\n    \"key_0\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": \"<boolean>\"\n      },\n      \"channel_types\": {\n        \"chat\": \"<boolean>\",\n        \"email\": \"<boolean>\",\n        \"http\": \"<boolean>\",\n        \"in_app_feed\": \"<boolean>\",\n        \"push\": \"<boolean>\",\n        \"sms\": \"<boolean>\"\n      },\n      \"channels\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\"\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": \"<boolean>\"\n      }\n    },\n    \"key_1\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": \"<boolean>\"\n      },\n      \"channel_types\": {\n        \"chat\": \"<boolean>\",\n        \"email\": \"<boolean>\",\n        \"http\": \"<boolean>\",\n        \"in_app_feed\": \"<boolean>\",\n        \"push\": \"<boolean>\",\n        \"sms\": \"<boolean>\"\n      },\n      \"channels\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\",\n        \"key_2\": \"<boolean>\",\n        \"key_3\": \"<boolean>\"\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\",\n        \"key_2\": \"<boolean>\",\n        \"key_3\": \"<boolean>\"\n      }\n    },\n    \"key_2\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\"\n      },\n      \"channel_types\": {\n        \"chat\": \"<boolean>\",\n        \"email\": \"<boolean>\",\n        \"http\": \"<boolean>\",\n        \"in_app_feed\": \"<boolean>\",\n        \"push\": \"<boolean>\",\n        \"sms\": \"<boolean>\"\n      },\n      \"channels\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\"\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\"\n      }\n    },\n    \"key_3\": {\n      \"__persistence_strategy__\": \"<string>\",\n      \"categories\": {\n        \"key_0\": \"<boolean>\"\n      },\n      \"channel_types\": {\n        \"chat\": \"<boolean>\",\n        \"email\": \"<boolean>\",\n        \"http\": \"<boolean>\",\n        \"in_app_feed\": \"<boolean>\",\n        \"push\": \"<boolean>\",\n        \"sms\": \"<boolean>\"\n      },\n      \"channels\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\",\n        \"key_2\": \"<boolean>\"\n      },\n      \"commercial_subscribed\": \"<boolean>\",\n      \"workflows\": {\n        \"key_0\": \"<boolean>\",\n        \"key_1\": \"<boolean>\"\n      }\n    }\n  },\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0325df8-cfc8-4167-9704-61f0db4cab70",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_data\": {\n    \"97c5837d-c65c-4d54-aa39-080eeb81c69d\": {\n      \"tokens\": [\n        \"push_token_123\"\n      ]\n    }\n  },\n  \"description\": \"My product description\",\n  \"locale\": \"en-US\",\n  \"name\": \"My product\",\n  \"preferences\": {\n    \"default\": {\n      \"channel_types\": {\n        \"email\": true\n      },\n      \"workflows\": {\n        \"dinosaurs-loose\": {\n          \"channel_types\": {\n            \"email\": true\n          }\n        }\n      }\n    }\n  },\n  \"price\": 100,\n  \"timezone\": \"America/New_York\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"Object\",\n  \"id\": \"string\",\n  \"collection\": \"string\",\n  \"updated_at\": \"2002-02-21T19:27:52.275Z\",\n  \"created_at\": \"1986-03-15T09:09:47.669Z\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1047.29249086021\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5ae98b2-787f-4d6a-9936-3136708dd300",
+          "name": "Unset channel data",
+          "request": {
+            "name": "Unset channel data",
+            "description": {
+              "content": "Unsets the channel data for the specified object and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b8ea4e0-185f-4c73-941d-09b461da38a8",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7de09b9a-fbb5-424d-93d3-3a07fa2dde43",
+          "name": "Get channel data",
+          "request": {
+            "name": "Get channel data",
+            "description": {
+              "content": "Returns the channel data for the specified object and channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fd0bd54-720b-4245-977a-edb68f2ae07c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"ChannelData\",\n  \"channel_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"data\": {\n    \"devices\": [\n      {\n        \"locale\": null,\n        \"timezone\": null,\n        \"token\": \"device_1\"\n      }\n    ],\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e8024a3-4fff-427b-b967-d85ca897a031",
+          "name": "Set channel data",
+          "request": {
+            "name": "Set channel data",
+            "description": {
+              "content": "Sets the channel data for the specified object and channel. If no object exists in the current environment for the given `collection` and `object_id`, Knock will create the object as part of this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "channel_data",
+                ":channel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "channel_id",
+                  "description": "(Required) The unique identifier for the channel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b02af7f3-f154-4b8b-aa4d-be9f3e7e6ec1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "channel_data",
+                    ":channel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "channel_id",
+                      "description": "(Required) The unique identifier for the channel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"tokens\": [\n      \"push_token_1\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channel_id\": \"186828ef-7331-4947-a5db-91f2b088b995\",\n  \"data\": {\n    \"tokens\": [\n      \"string\",\n      \"string\"\n    ],\n    \"devices\": [\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      },\n      {\n        \"token\": \"string\",\n        \"locale\": \"string\",\n        \"timezone\": \"string\"\n      }\n    ]\n  },\n  \"__typename\": \"ChannelData\",\n  \"provider\": \"push_fcm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0af2be24-569e-4efb-af71-bb051e3fb56c",
+          "name": "List objects in a collection",
+          "request": {
+            "name": "List objects in a collection",
+            "description": {
+              "content": "Returns a paginated list of objects from the specified collection. Optionally includes preference data for the objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Includes preferences of the objects in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Includes preferences of the objects in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a884dc8-7a88-4087-b48f-e94ad7bb2f2d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"1972-03-16T00:02:37.366Z\",\n      \"created_at\": \"1993-05-09T00:44:47.411Z\",\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": 3304\n      }\n    },\n    {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"2020-04-18T23:54:48.157Z\",\n      \"created_at\": \"2023-11-30T23:02:23.989Z\",\n      \"properties\": {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": 6556,\n        \"key_3\": 8302\n      }\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51e86cf6-cd1c-464d-8e2c-5fcffeeb47c8",
+          "name": "Update channel types in preference set",
+          "request": {
+            "name": "Update channel types in preference set",
+            "description": {
+              "content": "Updates the channel type preferences for an object's preference set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id",
+                "channel_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5bcec99-12c4-4248-ba02-0f9640605285",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id",
+                    "channel_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\",\n    \"key_4\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca724cb4-c6f3-4432-9268-a5134049904b",
+          "name": "Create schedules in bulk",
+          "request": {
+            "name": "Create schedules in bulk",
+            "description": {
+              "content": "Bulk creates up to 1,000 schedules at a time. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `actor`, `recipient`, and `tenant` fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "schedules",
+                "bulk",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"schedules\": [\n    {\n      \"workflow\": \"<string>\",\n      \"actor\": \"<string>\",\n      \"data\": {\n        \"key_0\": 9361\n      },\n      \"ending_at\": \"<dateTime>\",\n      \"recipient\": \"<string>\",\n      \"repeats\": [\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        },\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        }\n      ],\n      \"scheduled_at\": \"<dateTime>\",\n      \"tenant\": \"<string>\"\n    },\n    {\n      \"workflow\": \"<string>\",\n      \"actor\": \"<string>\",\n      \"data\": {\n        \"key_0\": 792,\n        \"key_1\": 9325\n      },\n      \"ending_at\": \"<dateTime>\",\n      \"recipient\": \"<string>\",\n      \"repeats\": [\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        },\n        {\n          \"frequency\": \"<string>\",\n          \"__typename\": \"<string>\",\n          \"day_of_month\": \"<integer>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"hours\": \"<integer>\",\n          \"interval\": 1,\n          \"minutes\": \"<integer>\"\n        }\n      ],\n      \"scheduled_at\": \"<dateTime>\",\n      \"tenant\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "142c63e0-d3fc-46b7-819c-422aaab07925",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "schedules",
+                    "bulk",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schedules\": [\n    {\n      \"data\": {\n        \"key\": \"value\"\n      },\n      \"ending_at\": null,\n      \"recipient\": \"dnedry\",\n      \"repeats\": [\n        {\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": null,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\",\n            \"sat\",\n            \"sun\"\n          ],\n          \"frequency\": \"daily\",\n          \"hours\": null,\n          \"interval\": 1,\n          \"minutes\": null\n        }\n      ],\n      \"scheduled_at\": null,\n      \"tenant\": \"acme_corp\",\n      \"workflow\": \"comment-created\"\n    },\n    {\n      \"data\": {\n        \"key\": \"value\"\n      },\n      \"ending_at\": null,\n      \"recipient\": \"esattler\",\n      \"repeats\": [\n        {\n          \"__typename\": \"ScheduleRepeat\",\n          \"day_of_month\": null,\n          \"days\": [\n            \"mon\",\n            \"tue\",\n            \"wed\",\n            \"thu\",\n            \"fri\",\n            \"sat\",\n            \"sun\"\n          ],\n          \"frequency\": \"daily\",\n          \"hours\": null,\n          \"interval\": 1,\n          \"minutes\": null\n        }\n      ],\n      \"scheduled_at\": null,\n      \"tenant\": \"acme_corp\",\n      \"workflow\": \"comment-created\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"23fec656-bdf9-da6e-aaad-c9cc46050023\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1974-02-14T17:24:05.675Z\",\n  \"inserted_at\": \"2022-09-14T01:22:01.836Z\",\n  \"completed_at\": \"1968-07-26T11:56:25.521Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1992-05-28T08:13:18.904Z\",\n  \"progress_path\": \"https://tYwDPOLjvrLfWZZwZEGFj.xnQfyJtQneOSlm0QfV.8VtJp4AzZia5eT\",\n  \"started_at\": \"1957-01-04T04:13:59.156Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93418263-8616-4fb9-a575-3726974f879e",
+          "name": "Bulk delete subscriptions",
+          "request": {
+            "name": "Bulk delete subscriptions",
+            "description": {
+              "content": "Delete subscriptions for many objects in a single collection type. If a subscription for an object in the collection doesn't exist, it will be skipped.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "subscriptions",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"recipients\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "812800ba-d423-4855-bfab-b0e697318fe1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "subscriptions",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subscriptions\": [\n    {\n      \"id\": \"subscribed-to-object-1\",\n      \"recipients\": [\n        {\n          \"collection\": \"projects\",\n          \"id\": \"subscriber-project-1\"\n        },\n        \"subscriber-user-1\"\n      ]\n    },\n    {\n      \"id\": \"subscribed-to-object-2\",\n      \"recipients\": [\n        \"subscriber-user-2\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"23fec656-bdf9-da6e-aaad-c9cc46050023\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1974-02-14T17:24:05.675Z\",\n  \"inserted_at\": \"2022-09-14T01:22:01.836Z\",\n  \"completed_at\": \"1968-07-26T11:56:25.521Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1992-05-28T08:13:18.904Z\",\n  \"progress_path\": \"https://tYwDPOLjvrLfWZZwZEGFj.xnQfyJtQneOSlm0QfV.8VtJp4AzZia5eT\",\n  \"started_at\": \"1957-01-04T04:13:59.156Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "095c6d95-a032-4350-81f7-b5e75a3b1a1c",
+          "name": "Delete object preference set",
+          "request": {
+            "name": "Delete object preference set",
+            "description": {
+              "content": "Unsets the preference set for the object, removing it entirely.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e66ac601-b8df-4e95-87bf-b327169e5f9e",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe1dd008-33a3-426c-9da0-8e18c6134612",
+          "name": "Get object preference set",
+          "request": {
+            "name": "Get object preference set",
+            "description": {
+              "content": "Returns the preference set for the specified object and preference set `id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "417f7289-1d4f-4c28-8416-6f6332b9e69d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\",\n    \"key_4\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e991cd47-a95d-467b-aaa9-1bf207d6e87b",
+          "name": "Update a preference set",
+          "request": {
+            "name": "Update a preference set",
+            "description": {
+              "content": "Sets preferences within the given preference set. By default, this is a destructive operation and will replace any existing preferences with the preferences given. Use '__persistence_strategy': 'merge' to merge with existing preferences instead. If no object exists in the current environment for the given `:collection` and `:object_id`, Knock will create the object as part of this request. The preference set `:id` can be either `default` or a `tenant.id`. Learn more about [per-tenant preferences](/preferences/tenant-preferences).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "default",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the preference set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__persistence_strategy__\": \"<string>\",\n  \"categories\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\"\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": \"<boolean>\",\n  \"workflows\": {\n    \"key_0\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e818540b-e08a-490e-9998-00948ad9bc51",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "default",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the preference set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__persistence_strategy__\": \"merge\",\n  \"categories\": {\n    \"marketing\": false,\n    \"transactional\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  },\n  \"channel_types\": {\n    \"email\": true\n  },\n  \"channels\": {\n    \"2f641633-95d3-4555-9222-9f1eb7888a80\": {\n      \"conditions\": [\n        {\n          \"argument\": \"US\",\n          \"operator\": \"equal_to\",\n          \"variable\": \"recipient.country_code\"\n        }\n      ]\n    },\n    \"aef6e715-df82-4ab6-b61e-b743e249f7b6\": true\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"dinosaurs-loose\": {\n      \"channel_types\": {\n        \"email\": false\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"default\",\n  \"categories\": {\n    \"key_0\": false,\n    \"key_1\": false\n  },\n  \"channel_types\": {\n    \"chat\": \"<boolean>\",\n    \"email\": \"<boolean>\",\n    \"http\": \"<boolean>\",\n    \"in_app_feed\": \"<boolean>\",\n    \"push\": \"<boolean>\",\n    \"sms\": \"<boolean>\"\n  },\n  \"channels\": {\n    \"key_0\": \"<boolean>\",\n    \"key_1\": \"<boolean>\",\n    \"key_2\": \"<boolean>\",\n    \"key_3\": \"<boolean>\",\n    \"key_4\": \"<boolean>\"\n  },\n  \"commercial_subscribed\": true,\n  \"workflows\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77086b3a-e701-4c1e-91cd-9c987a3fa454",
+          "name": "Delete subscriptions",
+          "request": {
+            "name": "Delete subscriptions",
+            "description": {
+              "content": "Delete subscriptions for the specified recipients from an object. Returns the list of deleted subscriptions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f05db1e-b7d6-428a-ac71-e72cc8e44869",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipients\": [\n    \"user_123\",\n    \"user_123\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"__typename\": \"Subscription\",\n    \"recipient\": {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"1947-02-17T06:58:02.102Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"1978-03-30T12:47:17.978Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"object\": {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"1996-12-01T06:45:31.207Z\",\n      \"created_at\": \"1966-04-09T11:51:55.583Z\",\n      \"properties\": {\n        \"key_0\": 7841.931844738018,\n        \"key_1\": true\n      }\n    },\n    \"inserted_at\": \"2021-01-01T00:00:00Z\",\n    \"updated_at\": \"2021-01-01T00:00:00Z\",\n    \"properties\": {\n      \"key_0\": \"string\",\n      \"key_1\": 5024.925792649394\n    }\n  },\n  {\n    \"__typename\": \"Subscription\",\n    \"recipient\": {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"1952-12-15T17:57:19.649Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"2011-11-29T04:03:46.619Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"object\": {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"2005-12-13T22:25:45.438Z\",\n      \"created_at\": \"1978-04-04T14:34:11.604Z\",\n      \"properties\": {\n        \"key_0\": 6235\n      }\n    },\n    \"inserted_at\": \"2021-01-01T00:00:00Z\",\n    \"updated_at\": \"2021-01-01T00:00:00Z\",\n    \"properties\": {\n      \"key_0\": 9221.640408217696,\n      \"key_1\": 4977.297839724726\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c98e3c6-39f9-49a4-8ddc-4f77f4fd604e",
+          "name": "List subscriptions",
+          "request": {
+            "name": "List subscriptions",
+            "description": {
+              "content": "List subscriptions for an object. Either list the recipients that subscribe to the provided object, or list the objects that the provided object is subscribed to. Determined by the `mode` query parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "object",
+                  "description": "Mode of the request. `recipient` to list the objects that the provided object is subscribed to, `object` to list the recipients that subscribe to the provided object."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Additional fields to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Additional fields to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "recipients[]",
+                  "value": "<string>",
+                  "description": "Recipients to filter by (only used if mode is `object`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "recipients[]",
+                  "value": "<string>",
+                  "description": "Recipients to filter by (only used if mode is `object`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "objects[]",
+                  "value": "{\"collection\":\"<string>\",\"id\":\"<string>\"}",
+                  "description": "Objects to filter by (only used if mode is `recipient`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "objects[]",
+                  "value": "{\"collection\":\"<string>\",\"id\":\"<string>\"}",
+                  "description": "Objects to filter by (only used if mode is `recipient`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries after."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "The cursor to fetch entries before."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "The number of items per page (defaults to 50)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebcf7b10-a24c-4f46-a15c-3b1a0159f964",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mode",
+                      "value": "object"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "recipients[]",
+                      "value": "user_123"
+                    },
+                    {
+                      "key": "recipients[]",
+                      "value": "user_123"
+                    },
+                    {
+                      "key": "objects[]",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "objects[]",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": [\n    {\n      \"__typename\": \"Subscription\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"2003-04-14T04:16:07.315Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1999-04-09T05:58:19.035Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"object\": {\n        \"__typename\": \"Object\",\n        \"id\": \"string\",\n        \"collection\": \"string\",\n        \"updated_at\": \"2020-12-05T10:40:35.798Z\",\n        \"created_at\": \"2002-08-01T09:10:01.832Z\",\n        \"properties\": {\n          \"key_0\": true\n        }\n      },\n      \"inserted_at\": \"2021-01-01T00:00:00Z\",\n      \"updated_at\": \"2021-01-01T00:00:00Z\",\n      \"properties\": {\n        \"key_0\": 7049.875703159213\n      }\n    },\n    {\n      \"__typename\": \"Subscription\",\n      \"recipient\": {\n        \"__typename\": \"User\",\n        \"id\": \"string\",\n        \"updated_at\": \"1987-04-23T13:36:56.273Z\",\n        \"avatar\": \"string\",\n        \"created_at\": \"1951-03-07T17:22:21.414Z\",\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"object\": {\n        \"__typename\": \"Object\",\n        \"id\": \"string\",\n        \"collection\": \"string\",\n        \"updated_at\": \"2018-11-29T15:14:07.815Z\",\n        \"created_at\": \"1974-01-01T02:10:43.266Z\",\n        \"properties\": {\n          \"key_0\": true\n        }\n      },\n      \"inserted_at\": \"2021-01-01T00:00:00Z\",\n      \"updated_at\": \"2021-01-01T00:00:00Z\",\n      \"properties\": {\n        \"key_0\": 4512.295005877995,\n        \"key_1\": \"string\"\n      }\n    }\n  ],\n  \"page_info\": {\n    \"__typename\": \"PageInfo\",\n    \"after\": null,\n    \"before\": null,\n    \"page_size\": 25\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7291c9d-6ca8-4b55-9f98-3696f6ce9cbb",
+          "name": "Add subscriptions",
+          "request": {
+            "name": "Add subscriptions",
+            "description": {
+              "content": "Add subscriptions for an object. If a subscription already exists, it will be updated. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `recipient`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                ":object_id",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Unique identifier for the object."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"properties\": {\n    \"key_0\": true,\n    \"key_1\": 6170,\n    \"key_2\": 8960\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "417ff94f-71a0-43d9-9fbe-c43bc82e4000",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    ":object_id",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Unique identifier for the object."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"key\": \"value\"\n  },\n  \"recipients\": [\n    \"user_1\",\n    \"user_2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"__typename\": \"Subscription\",\n    \"recipient\": {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"2000-12-06T23:22:18.197Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"2008-12-20T03:02:41.480Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"object\": {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"1967-03-07T14:39:29.369Z\",\n      \"created_at\": \"2019-06-18T21:04:59.600Z\",\n      \"properties\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"inserted_at\": \"2021-01-01T00:00:00Z\",\n    \"updated_at\": \"2021-01-01T00:00:00Z\",\n    \"properties\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 6148\n    }\n  },\n  {\n    \"__typename\": \"Subscription\",\n    \"recipient\": {\n      \"__typename\": \"User\",\n      \"id\": \"string\",\n      \"updated_at\": \"1996-11-18T19:33:59.080Z\",\n      \"avatar\": \"string\",\n      \"created_at\": \"2004-07-11T11:29:54.518Z\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone_number\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"object\": {\n      \"__typename\": \"Object\",\n      \"id\": \"string\",\n      \"collection\": \"string\",\n      \"updated_at\": \"1955-05-03T22:48:06.575Z\",\n      \"created_at\": \"1955-05-08T05:18:43.044Z\",\n      \"properties\": {\n        \"key_0\": 7307.226616988489,\n        \"key_1\": 4604,\n        \"key_2\": 6876\n      }\n    },\n    \"inserted_at\": \"2021-01-01T00:00:00Z\",\n    \"updated_at\": \"2021-01-01T00:00:00Z\",\n    \"properties\": {\n      \"key_0\": \"string\",\n      \"key_1\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc2e86de-b1d3-463c-b48a-a102525762e6",
+          "name": "Bulk set objects",
+          "request": {
+            "name": "Bulk set objects",
+            "description": {
+              "content": "Bulk sets up to 1,000 objects at a time in the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "objects",
+                ":collection",
+                "bulk",
+                "set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection",
+                  "description": "(Required) The collection this object belongs to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"objects\": [\n    {\n      \"id\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"channel_data\": {\n        \"key_0\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"tokens\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"created_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"preferences\": {\n        \"key_0\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_3\": {\n          \"__persistence_strategy__\": \"<string>\",\n          \"categories\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channel_types\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"channels\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"commercial_subscribed\": \"<boolean>\",\n          \"workflows\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2103dc83-7a66-48cd-8201-dc1476fed828",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "objects",
+                    ":collection",
+                    "bulk",
+                    "set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection",
+                      "description": "(Required) The collection this object belongs to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"objects\": [\n    {\n      \"id\": \"project_1\",\n      \"name\": \"My project\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"__typename\": \"BulkOperation\",\n  \"id\": \"23fec656-bdf9-da6e-aaad-c9cc46050023\",\n  \"name\": \"Bulk operation name\",\n  \"status\": \"queued\",\n  \"estimated_total_rows\": 1000,\n  \"processed_rows\": 0,\n  \"success_count\": 0,\n  \"updated_at\": \"1974-02-14T17:24:05.675Z\",\n  \"inserted_at\": \"2022-09-14T01:22:01.836Z\",\n  \"completed_at\": \"1968-07-26T11:56:25.521Z\",\n  \"error_count\": 0,\n  \"error_items\": [\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"collection\": \"string\"\n    }\n  ],\n  \"failed_at\": \"1992-05-28T08:13:18.904Z\",\n  \"progress_path\": \"https://tYwDPOLjvrLfWZZwZEGFj.xnQfyJtQneOSlm0QfV.8VtJp4AzZia5eT\",\n  \"started_at\": \"1957-01-04T04:13:59.156Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d9cf3a2-3ddd-4559-83ca-a77b1e486278",
+    "name": "Knock Audiences Objects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}

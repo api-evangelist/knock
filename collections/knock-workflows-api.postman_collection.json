@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "30a094d1-01f4-4854-bc98-bcd1fc7e4e07",
+      "name": "Workflows",
+      "description": {
+        "content": "A workflow is a structured set of steps that is triggered to produce notifications sent over channels.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4ba0bb8-3d7d-46e7-9948-51910b292cb9",
+          "name": "Trigger workflow",
+          "request": {
+            "name": "Trigger workflow",
+            "description": {
+              "content": "Trigger a workflow (specified by the key) to run for the given recipients, using the parameters provided. Returns an identifier for the workflow run request. All workflow runs are executed asynchronously. This endpoint also handles [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients) for the `actor`, `recipient`, and `tenant` fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "workflows",
+                ":key",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Key of the workflow to trigger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"actor\": \"<string>\",\n  \"cancellation_key\": \"<string>\",\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": 4601\n  },\n  \"tenant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97947cb0-c783-4d81-a955-3d6e0bb7f0aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "workflows",
+                    ":key",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of the workflow to trigger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actor\": \"mr_dna\",\n  \"cancellation_key\": \"isla_nublar_incident_1993\",\n  \"data\": {\n    \"affected_areas\": [\n      \"visitor_center\",\n      \"raptor_pen\",\n      \"trex_paddock\"\n    ],\n    \"attraction_id\": \"paddock_rex_01\",\n    \"evacuation_protocol\": \"active\",\n    \"message\": \"Life finds a way\",\n    \"severity\": \"critical\",\n    \"system_status\": \"fences_failing\"\n  },\n  \"recipients\": [\n    \"dr_grant\",\n    \"dr_sattler\",\n    \"dr_malcolm\"\n  ],\n  \"tenant\": \"ingen_isla_nublar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflow_run_id\": \"123e4567-e89b-12d3-a456-426614174000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8586279-cc07-4133-b1cb-e6af97a11e53",
+          "name": "Cancel workflow",
+          "request": {
+            "name": "Cancel workflow",
+            "description": {
+              "content": "When invoked for a workflow using a specific workflow key and cancellation key, will cancel any queued workflow runs associated with that key/cancellation key pair. Can optionally be provided one or more recipients to scope the request to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "workflows",
+                ":key",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of the workflow to cancel."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cancellation_key\": \"<string>\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "369f7e1b-93a3-4752-9434-0bb1ece103e0",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "workflows",
+                    ":key",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of the workflow to cancel."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cancellation_key\": \"cancel-workflow-123\",\n  \"recipients\": [\n    \"jhammond\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.knock.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "444bfcc6-8371-41fa-b084-5167f31aff61",
+    "name": "Knock Audiences Workflows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An Audience is a segment of users.",
+      "type": "text/plain"
+    }
+  }
+}
