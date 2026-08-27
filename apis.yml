@@ -142,20 +142,6 @@ apis:
     url: https://docs.knock.app/reference
   - type: AsyncAPI
     url: asyncapi/knock-asyncapi.yml
-- aid: knock:knock-microsoft-teams-api
-  name: Knock Microsoft Teams API
-  description: The Microsoft Teams API from Knock — 4 operation(s) for microsoft teams.
-  humanURL: https://docs.knock.app/reference
-  baseURL: https://api.knock.app/v1
-  tags:
-  - Microsoft Teams
-  properties:
-  - type: OpenAPI
-    url: openapi/knock-microsoft-teams-api-openapi.yml
-  - type: Documentation
-    url: https://docs.knock.app/reference
-  - type: AsyncAPI
-    url: asyncapi/knock-asyncapi.yml
 - aid: knock:knock-objects-api
   name: Knock Objects API
   description: An object represents a resource in your system that you want to map into Knock.
@@ -166,23 +152,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/knock-objects-api-openapi.yml
-  - type: Documentation
-    url: https://docs.knock.app/reference
-  - type: AsyncAPI
-    url: asyncapi/knock-asyncapi.yml
-- aid: knock:knock-preferences-api
-  name: Knock Preferences API
-  description: >-
-    Preferences are a way to configure how notifications are sent to recipients. They are a set of configuration
-    that determines whether a recipient should receive a notification for a given workflow on a specific
-    channel.
-  humanURL: https://docs.knock.app/reference
-  baseURL: https://api.knock.app/v1
-  tags:
-  - Preferences
-  properties:
-  - type: OpenAPI
-    url: openapi/knock-preferences-api-openapi.yml
   - type: Documentation
     url: https://docs.knock.app/reference
   - type: AsyncAPI
@@ -213,20 +182,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/knock-schedules-api-openapi.yml
-  - type: Documentation
-    url: https://docs.knock.app/reference
-  - type: AsyncAPI
-    url: asyncapi/knock-asyncapi.yml
-- aid: knock:knock-slack-api
-  name: Knock Slack API
-  description: The Slack API from Knock — 3 operation(s) for slack.
-  humanURL: https://docs.knock.app/reference
-  baseURL: https://api.knock.app/v1
-  tags:
-  - Slack
-  properties:
-  - type: OpenAPI
-    url: openapi/knock-slack-api-openapi.yml
   - type: Documentation
     url: https://docs.knock.app/reference
   - type: AsyncAPI
