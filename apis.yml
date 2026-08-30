@@ -68,7 +68,7 @@ apis:
   humanURL: https://docs.knock.app/reference
   baseURL: https://api.knock.app/v1
   tags:
-  - Bulk Operations
+  - Bulk operations
   tags_raw:
   - Bulk operations
   properties:
